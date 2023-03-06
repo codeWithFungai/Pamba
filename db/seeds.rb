@@ -5,3 +5,17 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+Listing.create!(
+  title:
+  address:
+  city:
+  description:
+  price:
+  kitchen:
+  private_bathroom:
+  laundry:
+  distance:
+  type:
+  nr_of_rooms:
+)

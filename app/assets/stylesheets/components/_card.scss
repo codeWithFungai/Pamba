@@ -1,0 +1,78 @@
+// #EB455F red
+// #FCFFE7 white
+// #BAD7E9 light blue
+// #2B3467 dark blue
+
+.card{
+  width:  240px;
+  height: 340px;
+  margin: 3rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+}
+
+.card-trip{
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  width:  240px;
+  height: 440px;
+  position: relative;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+
+}
+
+.card--bottom--section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.card-trip-infos p{
+  font-size: 12px;
+  padding: 0 12px;
+}
+
+.card-trip-infos h2{
+  font-size: 16px;
+  padding: 0 12px;
+}
+
+.card-trip-pricing h3{
+  font-size: 18px;
+  font-weight: bold;
+  padding: 0 12px;
+  color: #2B3467;
+}
+
+.card-image{
+  width: 100%;
+  border-radius: 12px 12px 0 0;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+
+
+.card-trip .card-heart{
+  font-size: 1.5rem;
+  color: white;
+  position: absolute; top:0; right:16px;
+}
+
+.no-decoration {
+  text-decoration: none;
+  color: black;
+}
+
+.fa-heart {
+  color: #EB455F;
+}
+
+.card--title {
+  font-size: 24px;
+  font-weight: bold;
+  padding: 0 12px;
+  color: #2B3467;
+}

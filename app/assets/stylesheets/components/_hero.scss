@@ -1,0 +1,54 @@
+// #EB455F red
+// #FCFFE7 white
+// #BAD7E9 light blue
+// #2B3467 dark blue
+
+.hero {
+  display: flex;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(https://source.unsplash.com/random/1600x500/?travel); background-repeat: no-repeat;
+  background-size: cover;
+  height: 80vh;
+  width: 100vw;
+  margin-bottom: 24px;
+  align-items: center;
+  padding: 0 15rem;
+  justify-content: space-between;
+}
+
+.hero--title {
+  font-weight: 600;
+  font-size: 3rem;
+  color: #FCFFE7;
+}
+
+.form-control {
+  margin-right: 5px;
+  border-radius: 5px;
+}
+
+#btn-submit {
+  background-color: #EB455F;
+  color: #FCFFE7;
+  padding: 8px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 18px;
+  border: none;
+}
+
+#btn-submit:hover {
+  background-color: #EB455F;
+  color: #FCFFE7;
+}
+
+a:hover {
+color: #2B3467;
+}
+
+h3 {
+  color: #EB455F;
+}
+
+.d-flex {
+  flex-grow: 1;
+}

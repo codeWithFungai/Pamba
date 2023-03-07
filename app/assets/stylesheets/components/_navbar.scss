@@ -1,3 +1,8 @@
+// #EB455F red
+// #FCFFE7 white
+// #BAD7E9 light blue
+// #2B3467 dark blue
+
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
@@ -9,4 +14,13 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.nav-link {
+  color: #EB455F;
+}
+
+marquee {
+  width: 50%;
+  font-weight: bold;
 }

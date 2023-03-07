@@ -14,5 +14,4 @@ class BookingsController < ApplicationController
 
     def delete
     end
-
 end

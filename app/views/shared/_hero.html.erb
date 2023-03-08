@@ -1,0 +1,14 @@
+<div  class='hero row'>
+    <h1 class='col col-6 hero--title'>Find the perfect accomodation based on previous students reviews.</h1>
+    <div class='col col-4'>
+      <div class="input-group">
+        <%= form_with url: listings_path, method: :get, class: "d-flex" do %>
+          <%= text_field_tag :query,
+                      params[:query],
+                      class: "form-control",
+                      placeholder: "Find a place now" %>
+          <%= submit_tag "Search", id: 'btn-submit' %>
+        <% end %>
+      </div>
+    </div>
+  </div>

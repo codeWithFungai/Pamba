@@ -1,17 +1,40 @@
 class BookingsController < ApplicationController
-    
-    def index
-    end
+  before_action :set_booking, only: %i[update edit destroy]
 
-    def create
-    end
+  def index
+    @bookings = Booking.where(user: current_user)
+  end
 
-    def show
+  def create
+    @booking = Booking.new(booking_params)
+    @booking.user = current_user
+    @booking.listing = Listing.find(params[:listing_id])
+    if @booking.save
+      redirect_to bookings_path
     end
+  end
 
-    def update
-    end
+  def edit
+    @booking = Booking.find(params[:booking_id])
+  end
 
-    def delete
-    end
+  def update
+    @booking = Booking.update(booking_params)
+  end
+
+  def destroy
+    @booking.delete
+    redirect_to bookings_path
+  end
+
+  private
+
+  def set_booking
+    @booking = Booking.find(params[:id])
+  end
+
+  def booking_params
+    params.require(:booking).permit(:start_date, :end_date)
+  end
+
 end

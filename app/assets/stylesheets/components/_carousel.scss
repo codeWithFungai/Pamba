@@ -1,0 +1,18 @@
+// #EB455F red
+// #FCFFE7 white
+// #BAD7E9 light blue
+// #2B3467 dark blue
+
+.carousel-caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #BAD7E9;
+}
+
+.carousel-caption h1,
+.carousel-caption h4 {
+  color: #BAD7E9;
+}
+

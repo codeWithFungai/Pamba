@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Check-in and Checkout Datepicker</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    var dateFormat = "mm/dd/yy",
+      from = $( "#checkin-date" )
+        .datepicker({
+          defaultDate: "+1w",
+          changeMonth: true,
+          numberOfMonths: 1
+        })
+        .on( "change", function() {
+          to.datepicker( "option", "minDate", getDate( this ) );
+        }),
+      to = $( "#checkout-date" ).datepicker({
+        defaultDate: "+1w",
+        changeMonth: true,
+        numberOfMonths: 1
+      })
+      .on( "change", function() {
+        from.datepicker( "option", "maxDate", getDate( this ) );
+      });
+
+    function getDate( element ) {
+      var date;
+      try {
+        date = $.datepicker.parseDate( dateFormat, element.value );
+      } catch( error ) {
+        date = null;
+      }
+      return date;
+    }
+  } );
+  </script>
+</head>
+<body>
+
+<div class="flex-container">
+<div class="dropdown">
+  <button class="dropdown-button">Bootcamp City</button>
+  <div class="dropdown-content">
+    <a href="#">Amsterdam</a>
+    <a href="#">Barcelona</a>
+    <a href="#">Berlin</a>
+    <a href="#">Brussels</a>
+    <a href="#">Cologne</a>
+    <a href="#">Lausanne</a>
+    <a href="#">Lisbon</a>
+    <a href="#">London</a>
+    <a href="#">Madrid</a>
+    <a href="#">Munich</a>
+    <a href="#">Porto</a>
+    <a href="#">Zurich</a>
+  </div>
+</div>
+
+<script>
+  const dropdownButton = document.querySelector('.dropdown-button');
+  const dropdownContent = document.querySelector('.dropdown-content');
+
+  dropdownContent.addEventListener('click', function(event) {
+    event.preventDefault();
+    dropdownButton.textContent = event.target.textContent;
+  });
+</script>
+
+  <label for="checkin-date"></label>
+  <input placeholder="Check-in date" type="text" id="checkin-date" name="checkin-date">
+
+  <label for="checkout-date"></label>
+  <input placeholder="Check-out date" type="text" id="checkout-date" name="checkout-date">
+
+ <form class="search-form">
+  <input type="text" placeholder="Search...">
+  <button type="submit"><i class="fa fa-search"></i></button>
+  </form>
+</div>
+</body>
+</html>

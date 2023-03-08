@@ -1,11 +1,11 @@
 class ListingsController < ApplicationController
-    
+
     #index: to display a list of all the available listings.
     def index
         @query = params[:search].nil ? "" : params[:search]
         if @query == ""
             @listing = Listing.all
-        else 
+        else
             @listing = Listing.where("listings.city ILIKE  ", @query.downcase + "%")
         end
 
@@ -20,5 +20,4 @@ class ListingsController < ApplicationController
     def show
       @booking = @listing.bookings.find_by(user_id: current_user.id) if nil?
     end
-
 end

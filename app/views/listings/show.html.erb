@@ -1,93 +1,64 @@
-<section id="gridGallery">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-6 col-xs-6 box" id="boxOne">
-        <div class="toggleIcon"></div>
-        <div class="col-sm-6 captionBox hiddenText">
-          <h3>Here is some text</h3>
-          <p>Fixie banh mi blog, YOLO sriracha roof party mumblecore post-ironic. Keytar 90's cornhole drinking vinegar deep v, VHS messenger bag Pinterest. Etsy farm-to-table Intelligentsia Thundercats, pork belly vegan authentic single-origin coffee dreamcatcher
-            bespoke master cleanse street art art party.</p>
-          <p>Fixie banh mi blog, YOLO sriracha roof party mumblecore post-ironic. Keytar 90's cornhole drinking vinegar deep v, VHS messenger bag Pinterest. Etsy farm-to-table Intelligentsia Thundercats, pork belly vegan authentic single-origin coffee dreamcatcher
-            bespoke master cleanse street art art party.</p>
-        </div>
+<div class="container pt-5">
+  <div class="row">
+    <h2><strong>Details of <%= @listing.title %></strong></h2>
+      <div class="d-flex justify-content-between">
+        <p> <%= @listing.city %></p>
+        <p>Save <i class="fa-regular fa-heart"></i> Share <i class="fa-sharp fa-solid fa-arrow-up-from-bracket"></i></p>
       </div>
-
-      <div class="col-sm-3 col-xs-6 box" id="boxTwo">
-        <div class="toggleIcon"></div>
-        <div class="col-sm-6 captionBox hiddenText">
-          <h3>Here is some text</h3>
-          <p>Fixie banh mi blog, YOLO sriracha roof party mumblecore post-ironic. Keytar 90's cornhole drinking vinegar deep v, VHS messenger bag Pinterest. Etsy farm-to-table Intelligentsia Thundercats, pork belly vegan authentic single-origin coffee dreamcatcher
-            bespoke master cleanse street art art party.</p>
-        </div>
-
+      <div class="d-flex justify-content-between">
+        <% if @reviews.present? %>
+          <p> <%= @reviews.first.rating %> <i class="fa-solid fa-star"></i>  Reviews: <%=@reviews.count %></p>
+          <% end %>
       </div>
-
-      <div class="col-sm-3 col-xs-6 box" id="boxThree">
-        <div class="toggleIcon"></div>
-        <div class="col-sm-6 captionBox hiddenText">
-          <h3>Here is some text</h3>
-          <p>Fixie banh mi blog, YOLO sriracha roof party mumblecore post-ironic. Keytar 90's cornhole drinking vinegar deep v, VHS messenger bag Pinterest. Etsy farm-to-table Intelligentsia Thundercats, pork belly vegan authentic single-origin coffee dreamcatcher
-            bespoke master cleanse street art art party.</p>
-        </div>
-
-      </div>
-
-      <div class="col-sm-3 col-xs-6 box" id="boxFour">
-        <div class="toggleIcon"></div>
-        <div class="col-sm-6 captionBox hiddenText">
-          <h3>Here is some text</h3>
-          <p>Fixie banh mi blog, YOLO sriracha roof party mumblecore post-ironic. Keytar 90's cornhole drinking vinegar deep v, VHS messenger bag Pinterest. Etsy farm-to-table Intelligentsia Thundercats, pork belly vegan authentic single-origin coffee dreamcatcher
-            bespoke master cleanse street art art party.</p>
-        </div>
-
-      </div>
-
-      <div class="col-sm-6 col-xs-6 pull-right box" id="boxEight">
-        <div class="toggleIcon"></div>
-        <div class="col-sm-6 captionBox hiddenText">
-          <h3>Here is some text</h3>
-          <p>Fixie banh mi blog, YOLO sriracha roof party mumblecore post-ironic. Keytar 90's cornhole drinking vinegar deep v, VHS messenger bag Pinterest. Etsy farm-to-table Intelligentsia Thundercats, pork belly vegan authentic single-origin coffee dreamcatcher
-            bespoke master cleanse street art art party.</p>
-        </div>
-
-      </div>
-
-      <div class="col-sm-3 col-xs-6 pull-right box" id="boxSeven">
-        <div class="toggleIcon"></div>
-        <div class="col-sm-6 captionBox hiddenText">
-          <h3>Here is some text</h3>
-          <p>Fixie banh mi blog, YOLO sriracha roof party mumblecore post-ironic. Keytar 90's cornhole drinking vinegar deep v, VHS messenger bag Pinterest. Etsy farm-to-table Intelligentsia Thundercats, pork belly vegan authentic single-origin coffee dreamcatcher
-            bespoke master cleanse street art art party.</p>
-        </div>
-
-      </div>
-
-      <div class="col-sm-3 col-xs-6 box" id="boxFive">
-        <div class="toggleIcon"></div>
-        <div class="col-sm-6 captionBox hiddenText bottomRight">
-          <h3>Here is some text</h3>
-          <p>Fixie banh mi blog, YOLO sriracha roof party mumblecore post-ironic. Keytar 90's cornhole drinking vinegar deep v, VHS messenger bag Pinterest. Etsy farm-to-table Intelligentsia Thundercats, pork belly vegan authentic single-origin coffee dreamcatcher
-            bespoke master cleanse street art art party.</p>
-        </div>
-
-      </div>
-
-      <div class="col-sm-3 col-xs-6 box" id="boxSix">
-        <div class="toggleIcon"></div>
-        <div class="col-sm-6 captionBox hiddenText bottomRight">
-          <h3>Here is some text</h3>
-          <p>Fixie banh mi blog, YOLO sriracha roof party mumblecore post-ironic. Keytar 90's cornhole drinking vinegar deep v, VHS messenger bag Pinterest. Etsy farm-to-table Intelligentsia Thundercats, pork belly vegan authentic single-origin coffee dreamcatcher
-            bespoke master cleanse street art art party.</p>
-        </div>
-
-      </div>
-
-
-    </div>
-    <!--.row-->
-
   </div>
-  <!--.container-->
 
 
-</section>
+  <div class= grid-image>
+    <%= render "shared/grid", listing: @listing %>
+  </div>
+
+  <div class="info-details">
+    <h3>This Property is Hosted by: Fungai </h3>
+    <p> <i class="fa-solid fa-children"></i> 4 guests  | <i class="fa-solid fa-people-roof"></i> 2 bedrooms | <i class="fa-solid fa-bed"></i> 4 beds | <i class="fa-solid fa-bath"></i> 2 baths</p>
+    <p><%= @listing.description %></p>
+    <p><strong>€<%= @listing.price %></strong></p>
+  </div>
+
+  <div class="d-flex justify-content-between">
+    <div class="arrival"> 
+    <p><i class="fa-solid fa-door-closed"></i> <strong>Self check-in</strong><br>
+      You can check in with the doorman.</p>
+    <p><i class="fa-solid fa-car"></i> <strong>Drive Right Up</strong><br>
+      You can park your vechile in the private driveway</p>
+    <p><i class="fa-regular fa-star"></i> <strong>Experienced host</strong><br>
+      Novasol has 240 reviews for other places.</p><br>
+    <p>- Free parking on site<br>
+      - Indoor swimming pool<br>
+      - Not suitable for youth groups<br>
+      - Optional: Bedlinen incl towels<br><br>
+        No pets allowed
+    <div class="offers">
+      <br>
+      <h3>What this accommation has to  offer:</h3>
+      <p><i class="fa-solid fa-kitchen-set"></i>-Kitchen</p>
+      <p><i class="fa-solid fa-wifi"></i>-Wifi</p>
+      <p><i class="fa-solid fa-desktop"></i>-Dedicated workspace </p>
+      <p><i class="fa-solid fa-water-ladder"></i>-Pool</p>
+      <p><i class="fa-solid fa-shirt"></i>-Washer/Dryer</p>
+      <p><i class="fa-solid fa-tv"></i>-TV</p>
+    </div>
+    </p>
+  </div>
+
+
+</div>
+<div>
+<br>
+  <h3>Reviews</h3>
+    <% @listing.reviews.each do |review| %>
+     <p>
+      <%= review.content %>
+      <%= review.rating  %> <i class="fa-solid fa-star"></i>
+      </p>
+    <% end %>
+</div>

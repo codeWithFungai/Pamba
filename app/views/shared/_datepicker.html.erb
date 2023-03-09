@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<%# <!DOCTYPE html>
 <html>
 <head>
   <title>Check-in and Checkout Datepicker</title>
@@ -67,16 +67,17 @@
     event.preventDefault();
     dropdownButton.textContent = event.target.textContent;
   });
-</script>
+</script> %>
+ <form class="search_form" action="<%=listings_path %>">
+ <label for="location"></label>
+  <input placeholder="location" type="text" id="location" name="location">
 
-  <label for="checkin-date"></label>
-  <input placeholder="Check-in date" type="text" id="checkin-date" name="checkin-date">
+  <label for="checkin_date"></label>
+  <input placeholder="Check-in date" type="text" id="checkin_date" name="checkin_date">
 
-  <label for="checkout-date"></label>
-  <input placeholder="Check-out date" type="text" id="checkout-date" name="checkout-date">
+  <label for="checkout_date"></label>
+  <input placeholder="Check-out date" type="text" id="checkoutdate" name="checkout_date">
 
- <form class="search-form">
-  <input type="text" placeholder="Search...">
   <button type="submit"><i class="fa fa-search"></i></button>
   </form>
 </div>

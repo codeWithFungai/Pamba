@@ -1,0 +1,15 @@
+<div class='booking-container'>
+  <div class='container pt-2'>
+    <h1 class='new-booking-header'>Create a New Booking</h1>
+    <div class='col'>
+      <%= simple_form_for [@listing, @booking] do |f| %>
+        <%= f.input :start_date %>
+        <%= f.input :end_date %>
+        <div class='btns-container'>
+          <%= f.button :submit, :id => 'btn-submit'  %>
+          <%= link_to "Cancel", :back, :id => 'btn-cancel'  %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

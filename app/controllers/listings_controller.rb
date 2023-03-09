@@ -14,11 +14,13 @@ class ListingsController < ApplicationController
               lat: listing.latitude,
               lng: listing.longitude
             }
+        end
     end
 
     #show: to display the details of a specific listing.
-    def show
-      @booking = @listing.bookings.find_by(user_id: current_user.id) if nil?
-    end
+        def show
+            @listing = Listing.find(params[:id])
+        end
+
 
 end

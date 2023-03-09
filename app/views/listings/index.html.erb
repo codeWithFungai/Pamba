@@ -1,0 +1,12 @@
+<div class="d-flex">
+<% @listings.each do | listing | %>
+<div>
+<p><%= listing.image %></p>
+<p><%= listing.title %></p>
+<p><%= listing.description %></p>
+<p><%= listing.price %></p>
+<p><%= listing.city %></p>
+<p><%= listing.nr_of_rooms %></p>
+</div>
+<% end %>
+</div>

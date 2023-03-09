@@ -1,21 +1,18 @@
 class ListingsController < ApplicationController
-
     #index: to display a list of all the available listings.
-    def index
-            @listings = Listing.all
-        # @markers = @listings.geocoded.map do |listing|
-        #     {
-        #       lat: listing.latitude,
-        #       lng: listing.longitude
-        #     }
-        # end
+  def index
+    if params[:location].present?
+      @listings = Listing.where(location: params[:query])
+    else
+      @listings = Listing.all
     end
-
-    #show: to display the details of a specific listing.
-        def show
-            @listing = Listing.find(params[:id])
-        end
-
+      # @markers = @listings.geocoded.map do |listing|
+      #     {
+      #       lat: listing.latitude,
+      #       lng: listing.longitude
+      #     }
+      # end
+  end
 
   def show
     @listings = Listing.find(params[:id])

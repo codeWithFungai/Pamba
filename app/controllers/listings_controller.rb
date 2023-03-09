@@ -1,5 +1,6 @@
 class ListingsController < ApplicationController
-    #index: to display a list of all the available listings.
+
+
   def index
     @listings = []
 
@@ -12,16 +13,18 @@ class ListingsController < ApplicationController
     if params[:with_kitchen].present?
       @listings << Listing.with_kitchen
     end
-      # @markers = @listings.geocoded.map do |listing|
-      #     {
-      #       lat: listing.latitude,
-      #       lng: listing.longitude
-      #     }
-      # end
+
+
+    @markers = @listings.map do |listing|
+      {
+        lat: listing.latitude,
+        lng: listing.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {listing: listing}),
+        marker_html: render_to_string(partial: "marker")
+      }
   end
 
   def show
-    @listings = Listing.find(params[:id])
+    @listing = Listing.find(params[:id])
   end
-
 end

@@ -1,5 +1,7 @@
 require 'faker'
 
+
+
 Listing.destroy_all
 
 addresses = [
@@ -30,12 +32,6 @@ addresses = [
     {street: '85 rue Nationale', city: 'Paris'},
     {street: '33 Faubourg Saint Honoré', city: 'Paris'},
     {street: '12 rue La Boétie', city: 'Paris'},
-    {street: 'Solidarnoscstraat 90', city: 'Haarlem'},
-    {street: 'Engelandlaan 179', city: 'Haarlem'},
-    {street: 'Julianastraat 162', city: 'Haarlem'},
-    {street: 'Besoekistraat 21', city: 'Haarlem'},
-    {street: 'Monacopad 94', city: 'Haarlem'},
-    {street: 'Tobias Asserstraat 43', city: 'Haarlem'},
     {street: '3 Richmond Road', city: 'London'},
     {street: '494 Kings Road', city: 'London'},
     {street: '86 Springfield Road', city: 'London'},
@@ -47,6 +43,8 @@ addresses = [
     {street: '43 West Street', city: 'London'},
     {street: '9280 North Street', city: 'London'},
   ]
+
+
 
   descriptions = ['Lovely place for rent. Newly renovated. Close to shopping center and walking distance from train station.',
     'Available immediately, this spacious flat is close to the city center. Short or long-term rental.',
@@ -97,8 +95,14 @@ The accommodation is small as stated but with using as city break only really ne
 
 
 ids = User.all.pluck(:id)
+wagon_geo = {
+  "Amsterdam"=> [52.341051887583106, 4.854343356138673],
+  "London"=> [51.532943660406794, -0.07694804573254005],
+  "Paris"=> [48.86502442472922, 2.379906642554615]
+}
 
 addresses.each do |address|
+  calc_distance = Geocoder::Calculations.distance_between(wagon_geo[address[:city]], Geocoder.coordinates("#{address[:street]}, #{address[:city]}"))
   listing = Listing.create!(
     title: ['Beautiful Rental', 'Cozy Place for Rent', 'Rental with Great View',
             'Rental with Character', 'Newly Renovated Rental', 'Unique Place to Stay',
@@ -122,7 +126,7 @@ addresses.each do |address|
     kitchen: [true, false].sample,
     private_bathroom: [true, false].sample,
     laundry: [true, false].sample,
-    distance: 0,
+    distance: calc_distance,
     style: ['Flat', 'Townhouse', 'Detached', 'Semi-detached'].sample,
     nr_of_rooms: rand(1..3)
   )

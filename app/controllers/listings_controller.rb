@@ -22,9 +22,11 @@ class ListingsController < ApplicationController
         info_window_html: render_to_string(partial: "info_window", locals: {listing: listing}),
         marker_html: render_to_string(partial: "marker")
       }
-  end
+    end
+end
 
   def show
     @listing = Listing.find(params[:id])
+    @booking = Booking.new
   end
 end

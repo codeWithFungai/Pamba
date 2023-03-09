@@ -1,64 +1,107 @@
-<div class="container pt-5">
+<div class="container p-0">
+      <h2><strong>Details of <%= @listing.title %></strong></h2>
+           <div class="d-flex justify-content-between">
+                 <% if @reviews.present? %>
+                 <p> <%= @reviews.first.rating %> <i class="fa-solid fa-star"></i>  Reviews: <%=@reviews.count %></p>
+                 <% end %>
+          </div>
+                   <div class="d-flex justify-content-between">
+                        <p> <%= @listing.city %></p>
+                         <p>Save <i class="fa-regular fa-heart"></i> Share <i class="fa-sharp fa-solid fa-arrow-up-from-bracket"></i></p>
+                   </div>
   <div class="row">
-    <h2><strong>Details of <%= @listings.title %></strong></h2>
-      <div class="d-flex justify-content-between">
-        <p> <%= @listings.city %></p>
-        <p>Save <i class="fa-regular fa-heart"></i> Share <i class="fa-sharp fa-solid fa-arrow-up-from-bracket"></i></p>
+            <div class="col-6">
+                   <div class="grid-image" style="">
+                        <%= render "shared/grid", listing: @listing %>
+                   </div>
+            </div>
+            <div class="col-6">
+                  <div style="width: 100%; height: 400px;  border-radius: 25px"
+                        data-controller="map"
+                        data-map-markers-value="<%= @markers.to_json %>"
+                        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+                  </div>
+            </div>
+  </div>
+
+
+
+
+  <div class="d-flex p-0 m-0">
+        <div class="container-tablet" style="width: 25%; margin-top: 7px">
+              <div class="p-2" style="border:2px solid black; max-height: 300px; overflow:scroll; border-radius: 25px">
+                    <div class="info-details">
+                          <h3>Property Details</h3>
+                          <p> <i class="fa-solid fa-children"></i> 4 guests  | <i class="fa-solid fa-people-roof"></i> 2 bedrooms | <i class="fa-solid fa-bed"></i> 4 beds | <i class="fa-solid fa-bath"></i> 2 baths</p>
+                          <p><%= @listing.description %></p>
+                          <p><strong>Price: €<%= @listing.price %> / night</strong></p>
+                    </div>
+        
+                    <div class="offers">
+                      <br>
+                      <h3>Amenities:</h3>
+                      <p><i class="fa-solid fa-kitchen-set"></i>-Kitchen</p>
+                      <p><i class="fa-solid fa-desktop"></i>-Dedicated workspace</>
+                      <p><i class="fa-solid fa-wifi"></i>-Wifi </p>
+                      <p><i class="fa-solid fa-water-ladder"></i>-Pool</p>
+                      <p><i class="fa-solid fa-shirt"></i>-Washer/Dryer</p>
+                      <p><i class="fa-solid fa-tv"></i>-TV</p>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                          <div class="arrival"> 
+                                <p><i class="fa-solid fa-door-closed"></i> <strong>Self check-in</strong><br>
+                                You can check in with the doorman.</p>
+                                <p><i class="fa-solid fa-car"></i> <strong>Drive Right Up</strong><br>
+                                You can park your vechile in the private driveway</p>
+                                <p><i class="fa-regular fa-star"></i> <strong>Experienced host</strong><br>
+                                Novasol has 240 reviews for other places.</p><br>
+                                <p>- Free parking on site<br>
+                                - Indoor swimming pool<br>
+                                - Not suitable for youth groups<br>
+                                - Optional: Bedlinen incl towels<br><br>
+                                No pets allowed
+                                </p>
+                          </div>
+                    </div>
+              </div>
+        </div>
+
+        <div class="container-tablet" style="margin-left: 15px; width: 24%; margin-top: 7px">
+            <div class="p-2" style="border:2px solid black; max-height: 300px; overflow:scroll; border-radius: 25px">
+                  <h3>Reviews</h3>
+                  <% @listing.reviews.each do |review| %>
+                  <p style="text-overflow: ellipsis;">
+                  <%= review.content %>
+                  <%= review.rating  %> <i class="fa-solid fa-star"></i>
+                  </p>
+                  <% end %>
+              </div>
+        </div>
+
+      <div class="container-tablet" style="margin-left: 45px; width: 50%; margin-top: 7px">
+         <div class="p-2" style="border:2px solid black; max-height: 300px; overflow:scroll; border-radius: 25px">
+            <%= render "bookings/new", listing: @listing %><br>
+             <div class="buttons-container ">
+                  <p><%= link_to "Delete", listing_path(@listing),data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-outline-danger" %></p>
+             </div>
+          </div>
       </div>
-      <div class="d-flex justify-content-between">
-        <% if @reviews.present? %>
-          <p> <%= @reviews.first.rating %> <i class="fa-solid fa-star"></i>  Reviews: <%=@reviews.count %></p>
-          <% end %>
-      </div>
+
   </div>
-
-
-  <div class= grid-image>
-    <%= render "shared/grid", listing: @listing %>
-  </div>
-
-  <div class="info-details">
-    <h3>This Property is Hosted by: Fungai </h3>
-    <p> <i class="fa-solid fa-children"></i> 4 guests  | <i class="fa-solid fa-people-roof"></i> 2 bedrooms | <i class="fa-solid fa-bed"></i> 4 beds | <i class="fa-solid fa-bath"></i> 2 baths</p>
-    <p><%= @listings.description %></p>
-    <p><strong>€<%= @listings.price %></strong></p>
-  </div>
-
-  <div class="d-flex justify-content-between">
-    <div class="arrival"> 
-    <p><i class="fa-solid fa-door-closed"></i> <strong>Self check-in</strong><br>
-      You can check in with the doorman.</p>
-    <p><i class="fa-solid fa-car"></i> <strong>Drive Right Up</strong><br>
-      You can park your vechile in the private driveway</p>
-    <p><i class="fa-regular fa-star"></i> <strong>Experienced host</strong><br>
-      Novasol has 240 reviews for other places.</p><br>
-    <p>- Free parking on site<br>
-      - Indoor swimming pool<br>
-      - Not suitable for youth groups<br>
-      - Optional: Bedlinen incl towels<br><br>
-        No pets allowed
-    <div class="offers">
-      <br>
-      <h3>What this accommation has to  offer:</h3>
-      <p><i class="fa-solid fa-kitchen-set"></i>-Kitchen</p>
-      <p><i class="fa-solid fa-wifi"></i>-Wifi</p>
-      <p><i class="fa-solid fa-desktop"></i>-Dedicated workspace </p>
-      <p><i class="fa-solid fa-water-ladder"></i>-Pool</p>
-      <p><i class="fa-solid fa-shirt"></i>-Washer/Dryer</p>
-      <p><i class="fa-solid fa-tv"></i>-TV</p>
-    </div>
-    </p>
-  </div>
-
-
 </div>
-<div>
-<br>
-  <h3>Reviews</h3>
-    <% @listings.reviews.each do |review| %>
-     <p>
-      <%= review.content %>
-      <%= review.rating  %> <i class="fa-solid fa-star"></i>
-      </p>
-    <% end %>
-</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<%# <br> %>
+
+

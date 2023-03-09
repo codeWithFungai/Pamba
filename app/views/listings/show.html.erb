@@ -1,8 +1,8 @@
 <div class="container pt-5">
   <div class="row">
-    <h2><strong>Details of <%= @listing.title %></strong></h2>
+    <h2><strong>Details of <%= @listings.title %></strong></h2>
       <div class="d-flex justify-content-between">
-        <p> <%= @listing.city %></p>
+        <p> <%= @listings.city %></p>
         <p>Save <i class="fa-regular fa-heart"></i> Share <i class="fa-sharp fa-solid fa-arrow-up-from-bracket"></i></p>
       </div>
       <div class="d-flex justify-content-between">
@@ -20,8 +20,8 @@
   <div class="info-details">
     <h3>This Property is Hosted by: Fungai </h3>
     <p> <i class="fa-solid fa-children"></i> 4 guests  | <i class="fa-solid fa-people-roof"></i> 2 bedrooms | <i class="fa-solid fa-bed"></i> 4 beds | <i class="fa-solid fa-bath"></i> 2 baths</p>
-    <p><%= @listing.description %></p>
-    <p><strong>€<%= @listing.price %></strong></p>
+    <p><%= @listings.description %></p>
+    <p><strong>€<%= @listings.price %></strong></p>
   </div>
 
   <div class="d-flex justify-content-between">
@@ -55,7 +55,7 @@
 <div>
 <br>
   <h3>Reviews</h3>
-    <% @listing.reviews.each do |review| %>
+    <% @listings.reviews.each do |review| %>
      <p>
       <%= review.content %>
       <%= review.rating  %> <i class="fa-solid fa-star"></i>

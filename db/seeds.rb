@@ -23,9 +23,9 @@ addresses = [
     {street: 'Lizzy Ansinghstraat 19', city: 'Amsterdam'},
     {street: 'Jekerstraat 8', city: 'Amsterdam'},
     {street: '91 rue La Boétie', city: 'Paris'},
-    {street: '48 Square de la Couronne', city: 'Paris'},
-    {street: '25 Square de la Couronne', city: 'Paris'},
-    {street: '55 Square de la Couronne', city: 'Paris'},
+    {street: '24 Av. du Bel air', city: 'Paris'},
+    {street: '61 Rue de Buzenval', city: 'Paris'},
+    {street: '15 Ter Rue Lamblardie', city: 'Paris'},
     {street: '32 Place de la Madeleine', city: 'Paris'},
     {street: '4 rue Nationale', city: 'Paris'},
     {street: '46 Place de la Madeleine', city: 'Paris'},
@@ -35,11 +35,9 @@ addresses = [
     {street: '3 Richmond Road', city: 'London'},
     {street: '494 Kings Road', city: 'London'},
     {street: '86 Springfield Road', city: 'London'},
-    {street: '50 Grange Road', city: 'London'},
+    {street: '150 Piccadilly', city: 'London'},
     {street: '132 Church Road', city: 'London'},
     {street: '535 Kingsway', city: 'London'},
-    {street: '969 Broadway', city: 'London'},
-    {street: '65 West Street', city: 'London'},
     {street: '43 West Street', city: 'London'},
     {street: '9280 North Street', city: 'London'},
   ]
@@ -100,9 +98,14 @@ wagon_geo = {
   "London"=> [51.532943660406794, -0.07694804573254005],
   "Paris"=> [48.86502442472922, 2.379906642554615]
 }
-
+count = 0
 addresses.each do |address|
-  calc_distance = Geocoder::Calculations.distance_between(wagon_geo[address[:city]], Geocoder.coordinates("#{address[:street]}, #{address[:city]}"))
+count += 1
+  listing_coordinates = Geocoder.coordinates("#{address[:street]}, #{address[:city]}") #returns longitude - latitude array i.e. => [42.700149, -74.922767]
+  puts "#{listing_coordinates} for address #{count}"
+
+  calc_distance = Geocoder::Calculations.distance_between(wagon_geo[address[:city]], listing_coordinates)
+
   listing = Listing.create!(
     title: ['Beautiful Rental', 'Cozy Place for Rent', 'Rental with Great View',
             'Rental with Character', 'Newly Renovated Rental', 'Unique Place to Stay',
@@ -128,7 +131,9 @@ addresses.each do |address|
     laundry: [true, false].sample,
     distance: calc_distance,
     style: ['Flat', 'Townhouse', 'Detached', 'Semi-detached'].sample,
-    nr_of_rooms: rand(1..3)
+    nr_of_rooms: rand(1..3),
+    longitude: listing_coordinates[1],
+    latitude: listing_coordinates[0]
   )
 
   10.times do

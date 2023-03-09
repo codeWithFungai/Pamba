@@ -39,36 +39,105 @@
   </script>
 </head>
 <body>
+<%# Dropdown Campus Cities %>
 
 <div class="flex-container">
-<div class="dropdown">
-  <button class="dropdown-button">Bootcamp City</button>
-  <div class="dropdown-content">
-    <a href="#">Amsterdam</a>
-    <a href="#">Barcelona</a>
-    <a href="#">Berlin</a>
-    <a href="#">Brussels</a>
-    <a href="#">Cologne</a>
-    <a href="#">Lausanne</a>
-    <a href="#">Lisbon</a>
-    <a href="#">London</a>
-    <a href="#">Madrid</a>
-    <a href="#">Munich</a>
-    <a href="#">Porto</a>
-    <a href="#">Zurich</a>
-  </div>
+
+  <div class="dropdown">
+    <button class="dropdown-button">Find your campus</button>
+
+    <div class="dropdown-content">
+      <a href="#" class="dropdown-trigger">France</a>
+
+      <div class="dropdown-menu">
+      <a href="#">Bordeaux</a>
+      <a href="#">Lille</a>
+      <a href="#">Lyon</a>
+      <a href="#">Marseille</a>
+      <a href="#">Nantes</a>
+      <a href="#">Nice</a>
+      <a href="#">Paris</a>
+      <a href="#">Rennes</a>
+      <a href="#">Toulouse</a>
+      </div>
+
+      <a href="#" class="dropdown-trigger">Europe</a>
+      <div class="dropdown-menu">
+       <a href="#">Amsterdam</a>
+        <a href="#">Barcelona</a>
+        <a href="#">Berlin</a>
+        <a href="#">Brussels</a>
+        <a href="#">Cologne</a>
+        <a href="#">Lausanne</a>
+        <a href="#">Lisbon</a>
+        <a href="#">London</a>
+        <a href="#">Madrid</a>
+        <a href="#">Munich</a>
+        <a href="#">Porto</a>
+        <a href="#">Zurich</a>
+      </div>
+      <a href="#" class="dropdown-trigger">Asia Pacific</a>
+      <div class="dropdown-menu">
+        <a href="#">Bali</a>
+        <a href="#">Melbourne</a>
+        <a href="#">Shanghai</a>
+        <a href="#">Singapore</a>
+        <a href="#">Tokyo</a>
+      </div>
+      <a href="#" class="dropdown-trigger">Americas</a>
+      <div class="dropdown-menu">
+        <a href="#">Buenos Aires</a>
+        <a href="#">Mexico</a>
+        <a href="#">Montreal</a>
+        <a href="#">Rio de Janeiro</a>
+        <a href="#">Santiago</a>
+        <a href="#">São Paulo</a>
+      </div>
+      <a href="#" class="dropdown-trigger">Africa</a>
+      <div class="dropdown-menu">
+        <a href="#">Cape Town</a>
+        <a href="#">Casablanca</a>
+        <a href="#">Mauritius</a>
+      </div>
+      <a href="#" class="dropdown-trigger">Middle-East</a>
+      <div class="dropdown-menu">
+        <a href="#">Dubai</a>
+      </div>
+</div>
 </div>
 
 <script>
-  const dropdownButton = document.querySelector('.dropdown-button');
-  const dropdownContent = document.querySelector('.dropdown-content');
+const dropdownButton = document.querySelector('.dropdown-button');
+const dropdownContent = document.querySelector('.dropdown-content');
+const dropdownTriggers = document.querySelectorAll('.dropdown-trigger');
 
-  dropdownContent.addEventListener('click', function(event) {
+// Hide all the nested dropdown menus initially
+const dropdownMenus = document.querySelectorAll('.dropdown-menu');
+dropdownMenus.forEach(menu => menu.style.display = 'none');
+
+dropdownContent.addEventListener('click', function(event) {
+  event.preventDefault();
+  dropdownButton.textContent = event.target.textContent;
+
+  // Show the nested dropdown menu for the selected option
+  const selectedTrigger = event.target.classList.contains('dropdown-trigger') ? event.target : event.target.parentElement;
+  const selectedMenu = selectedTrigger.nextElementSibling;
+  dropdownMenus.forEach(menu => menu.style.display = menu === selectedMenu ? 'block' : 'none');
+});
+
+// Add click event listeners to the nested dropdown triggers
+dropdownTriggers.forEach(trigger => {
+  trigger.addEventListener('click', function(event) {
     event.preventDefault();
-    dropdownButton.textContent = event.target.textContent;
+
+    // Show the nested dropdown menu for the selected option
+    const selectedMenu = event.target.nextElementSibling;
+    dropdownMenus.forEach(menu => menu.style.display = menu === selectedMenu ? 'block' : 'none');
   });
+});
 </script>
 
+<%# Check-in and Check-out menu %>
   <label for="checkin-date"></label>
   <input placeholder="Check-in date" type="text" id="checkin-date" name="checkin-date">
 
@@ -80,5 +149,30 @@
   <button type="submit"><i class="fa fa-search"></i></button>
   </form>
 </div>
+  </div>
+</div>
 </body>
 </html>
+
+<%# <div class="flex-container">
+<div class="dropdown">
+  <button class="dropdown-button">Find your campus</button>
+  <div class="dropdown-content">
+    <a href="#">France</a>
+    <a href="#">Europe</a>
+    <a href="#">Asia Pacific</a>
+    <a href="#">Americas</a>
+    <a href="#">Africa</a>
+    <a href="#">Middle-East</a>
+  </div>
+</div>
+
+<script>
+  const dropdownButton = document.querySelector('.dropdown-button');
+  const dropdownContent = document.querySelector('.dropdown-content');
+
+  dropdownContent.addEventListener('click', function(event) {
+    event.preventDefault();
+    dropdownButton.textContent = event.target.textContent;
+  });
+</script> %>

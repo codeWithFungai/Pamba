@@ -1,5 +1,5 @@
 class ListingsController < ApplicationController
-    
+
     #index: to display a list of all the available listings.
     def index
             @listings = Listing.all

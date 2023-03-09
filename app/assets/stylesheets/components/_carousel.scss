@@ -8,11 +8,18 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: #BAD7E9;
+  color: #2B3467;
 }
 
 .carousel-caption h1,
 .carousel-caption h4 {
-  color: #BAD7E9;
+  color: #2B3467;
 }
 
+.carousel-item {
+  height: 10vh;
+}
+
+.carousel-item active{
+
+}

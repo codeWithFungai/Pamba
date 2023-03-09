@@ -1,10 +1,16 @@
 class ListingsController < ApplicationController
     #index: to display a list of all the available listings.
   def index
+    @listings = []
+
     if params[:location].present?
-      @listings = Listing.where(location: params[:query])
+      @listings = Listing.where(city: params[:location].capitalize)
     else
       @listings = Listing.all
+    end
+
+    if params[:with_kitchen].present?
+      @listings << Listing.with_kitchen
     end
       # @markers = @listings.geocoded.map do |listing|
       #     {

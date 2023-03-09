@@ -1,18 +1,17 @@
-<h1>Listings</h1>
 
-<% @listings.each do |listing| %>
-  <ul>
-    <li><%= listing.title %></li>
-    <li><%= listing.address %></li>
-    <li><%= listing.city %></li>
-    <li><%= listing.description %></li>
-    <li><%= listing.price %></li>
-    <li><%= listing.kitchen %></li>
-    <li><%= listing.private_bathroom %></li>
-    <li><%= listing.laundry %></li>
-    <li><%= listing.distance %></li>
-    <li><%= listing.style %></li>
-    <li><%= listing.nr_of_rooms %></li>
-    <li><%= listing.image %></li>
-  </ul>
-<% end %>
+  <div class='row'>
+    <div class="col-lg-12">
+      <div class='row'>
+        <% @listings.in_groups_of(2, false) do |group| %>
+          <div class='col-lg-3'>
+            <% group.compact.each do |listing| %>
+              <div class="mb-3">
+                <%= link_to listing_path(listing), class: "cards col-6 col-md-4 col-lg-3 no-decoration" do %>
+                  <%= render "shared/card", listing: listing %>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>

@@ -1,0 +1,17 @@
+
+  <div class='row'>
+    <div class="col-lg-12">
+      <div class='row'>
+        <% @listings.in_groups_of(2, false) do |group| %>
+          <div class='col-lg-3'>
+            <% group.compact.each do |listing| %>
+              <div class="mb-3">
+                <%= link_to listing_path(listing), class: "cards col-6 col-md-4 col-lg-3 no-decoration" do %>
+                  <%= render "shared/card", listing: listing %>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>

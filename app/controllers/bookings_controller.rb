@@ -7,7 +7,8 @@ class BookingsController < ApplicationController
   end
 
   def show
-    @listing = Listing.find(params[:listing_id])
+    # raise
+    @listing = @booking.listing
   end
 
   def index

@@ -8,7 +8,7 @@
                    <div class="d-flex justify-content-between">
                         <p> <%= @listing.city %>, Distance to campus :: <%= @listing.distance.round(2)%> km </p>
                          <p>Save <i class="fa-regular fa-heart"></i> Share <i class="fa-sharp fa-solid fa-arrow-up-from-bracket"></i></p>
-                   </div>
+                   </div>               
   <div class="row">
             <div class="col-6">
                    <div class="grid-image" style="">
@@ -109,9 +109,8 @@
 
      <div class="container-tablet" style="margin-left: 5px; width: 27%; margin-top: 7px">
          <div class="p-2" style="border:2px solid black; max-height: 300px; overflow:scroll; border-radius: 25px">
-            <%= render "bookings/new", listing: @listing %><br>
+            <%= render "bookings/new", listing: @listing, booking: @booking %><br>
              <div class="buttons-container ">
-                  <p><%= link_to "Delete", listing_path(@listing),data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-outline-danger" %></p>
              </div>
           </div>
       </div> 

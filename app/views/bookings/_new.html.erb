@@ -2,14 +2,16 @@
   <div class='container pt-2'>
     <h3 class="card--title">Create a booking</h3>
     <div class='col'>
-      <%= simple_form_for [@listing, @booking] do |f| %>
+      <%= simple_form_for [listing, booking] do |f| %>
         <%= f.input :start_date %>
         <%= f.input :end_date %>
         <div class='btns-container'>
-          <%= f.button :submit, :id => 'btn-submit'  %>
-          <%= link_to "Cancel", :back, :id => 'btn-cancel'  %>
+        <%= f.button :submit, value: "Book", class: "btn btn-secondary"%>
+        <%# <button type="button" class="btn btn-secondary">Edit</button> %>
+         <!--  <%= link_to "Cancel", :back, :id => 'btn-cancel'%> -->
+          <%# <%= link_to "Delete", listing_path(@listing),data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-outline-danger" %> 
         </div>
       <% end %>
     </div>
   </div>
-</div>
+</div>  

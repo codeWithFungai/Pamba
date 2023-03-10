@@ -7,7 +7,8 @@ class BookingsController < ApplicationController
   end
 
   def show
-    @listing = Listing.find(params[:listing_id])
+    # raise
+    @listing = @booking.listing
   end
 
   def index
@@ -19,7 +20,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.listing = Listing.find(params[:listing_id])
     if @booking.save
-      redirect_to bookings_path
+      redirect_to booking_path(@booking)
     end
   end
 

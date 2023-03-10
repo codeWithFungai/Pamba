@@ -16,6 +16,21 @@
   opacity: 1;
 }
 
+.btn-review {
+  color: #FCFFE7;
+  // padding: 8px 24px;
+  // border-radius: 4px;
+  background: #EB455F;
+  transition: 0.3s ease;
+  font-weight: 500;
+  border-radius: 10px;
+}
+
+.btn-review:hover {
+  background: #2B3467;
+  color: white;
+}
+
 .btn-flat {
   color: #FCFFE7;
   // padding: 8px 24px;

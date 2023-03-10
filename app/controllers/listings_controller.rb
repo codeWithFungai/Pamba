@@ -13,6 +13,13 @@ class ListingsController < ApplicationController
       @listings << Listing.with_kitchen
     end
 
+    if params[:with_laundry].present?
+      @listings << Listing.with_laundry
+    end
+
+    if params[:with_private_bathroom].present?
+      @listings << Listing.with_private_bathroom
+    end
 
     @markers = @listings.map do |listing|
       {
@@ -22,7 +29,7 @@ class ListingsController < ApplicationController
         marker_html: render_to_string(partial: "marker")
       }
     end
-end
+  end
 
   def show
     @listing = Listing.find(params[:id])

@@ -30,3 +30,4 @@ end
     @booking = Booking.new
   end
 end
+end

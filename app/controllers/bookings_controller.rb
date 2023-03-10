@@ -18,9 +18,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.listing = Listing.find(params[:listing_id])
-    if @booking.save
-      redirect_to bookings_path
-    end
+    redirect_to bookings_path if @booking.save
   end
 
   def edit
@@ -32,7 +30,7 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    @booking.delete
+    @booking.destroy
     redirect_to bookings_path
   end
 

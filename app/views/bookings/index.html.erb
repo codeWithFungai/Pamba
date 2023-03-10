@@ -1,0 +1,24 @@
+<h1 class='bookings--header'>My Dashboard</h1>
+
+<div class='bookings--container'>
+  <h2 class='bookings-subheader'>Bookings</h2>
+  <% @bookings.each do |booking| %>
+  <div class='booking--card'>
+    <%= render 'shared/card', listing: booking.listing %>
+    <div class='booking--card--rightside'>
+      <div class='booking--details'>
+        <p> <strong>City: </strong>  <%= booking.listing.city %> </p>
+        <p> <strong>Check-in: </strong><%= booking.start_date %> </p>
+        <p> <strong>Check-out: </strong><%= booking.end_date %></p>
+        <p> <strong>Address: </strong><%= booking.listing.address %></p>
+      </div>
+      <div class='bookings-buttons'>
+        <a class="btn " id='btn--review' href="#">Leave Review</a>
+        <%# <a class="btn" action='bookings#destroy' id='btn--delete' href="#">Delete Booking</a> %>
+        <%= link_to 'Delete Booking', booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn", id: 'btn--delete' %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+
+</div>

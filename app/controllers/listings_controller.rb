@@ -28,3 +28,4 @@ class ListingsController < ApplicationController
     @listing = Listing.find(params[:id])
   end
 end
+end

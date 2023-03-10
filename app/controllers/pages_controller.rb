@@ -7,5 +7,7 @@ class PagesController < ApplicationController
 
   def test_page
     @listing = Listing.first
+    @booking = Booking.first
+    @review = Review.new
   end
 end

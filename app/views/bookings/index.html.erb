@@ -1,0 +1,21 @@
+<%= button_to "destroy", destroy_user_session_path, method: :delete %>
+
+<% @bookings.each do |booking| %>
+  <button type="button" class="btn-flat" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Submit a review <% booking.id %>
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <%= render "review_form", booking: booking, review: @review %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn-ghost" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

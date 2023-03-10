@@ -4,15 +4,16 @@
 // #2B3467 dark blue
 
 .card-container {
+  // flex-direction: row;
   justify-content: space-between;
-  margin-left: 50px;
-  margin-right: 50px;
+  // margin-left: 50px;
+  // margin-right: 500px;
 }
 
 .card{
   width:  240px;
   height: 320px;
-  margin: 3rem;
+  // margin: 3rem;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 

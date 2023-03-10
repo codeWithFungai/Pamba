@@ -29,7 +29,7 @@ class ListingsController < ApplicationController
         marker_html: render_to_string(partial: "marker")
       }
     end
-end
+  end
 
   def show
     @listing = Listing.find(params[:id])

@@ -4,7 +4,13 @@
       <img src="<%= listing.image %>" style="width: 240px; height: 180px" />
     </div>
       <div class="card-trip-infos">
-          <h3 class="card--title"><%= listing.title %></h3>
+          <h3 class="card--title">
+        <% if listing.description.length > 18 %>
+          <%= listing.description[0...18] %>...
+          <% else %>
+          <%= listing.description %>
+          <% end %>
+          </h3>
           <p>
           <% if listing.description.length > 90 %>
           <%= listing.description[0...90] %>...

@@ -26,6 +26,7 @@ export default class extends Controller {
       // Create a HTML element for your custom marker
       const customMarker = document.createElement("div")
       customMarker.innerHTML = marker.marker_html
+      console.log(marker.marker_html)
 
       // Pass the element as an argument to the new marker
       new mapboxgl.Marker(customMarker)

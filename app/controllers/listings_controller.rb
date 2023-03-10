@@ -1,6 +1,5 @@
 class ListingsController < ApplicationController
 
-
   def index
     @listings = []
 
@@ -14,6 +13,13 @@ class ListingsController < ApplicationController
       @listings << Listing.with_kitchen
     end
 
+    if params[:with_laundry].present?
+      @listings << Listing.with_laundry
+    end
+
+    if params[:with_private_bathroom].present?
+      @listings << Listing.with_private_bathroom
+    end
 
     @markers = @listings.map do |listing|
       {

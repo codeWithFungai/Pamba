@@ -1,7 +1,7 @@
-<h1 class='bookings--header'>My Dashboard</h1>
+<h2 class='bookings--header'><strong>My Dashboard</strong></h2>
 
 <div class='bookings--container'>
-  <h2 class='bookings-subheader'>Bookings</h2>
+  <h3 class='bookings-subheader'><strong>Bookings<strong></h3>
   <% @bookings.each do |booking| %>
     <div class='booking--card'>
       <%= render 'shared/card', listing: booking.listing %>
@@ -14,7 +14,7 @@
         </div>
         <div class='bookings-buttons'>
           <button type="button" class="btn-review" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Leave review
+            Leave a review
           </button>
           <%# <a class="btn" action='bookings#destroy' id='btn--delete' href="#">Delete Booking</a> %>
           <%= link_to 'Delete Booking', booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn", id: 'btn--delete' %>

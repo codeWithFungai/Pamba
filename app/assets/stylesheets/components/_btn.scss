@@ -16,21 +16,6 @@
   opacity: 1;
 }
 
-.btn-review {
-  color: #FCFFE7;
-  // padding: 8px 24px;
-  // border-radius: 4px;
-  background: #EB455F;
-  transition: 0.3s ease;
-  font-weight: 500;
-  border-radius: 10px;
-}
-
-.btn-review:hover {
-  background: #2B3467;
-  color: white;
-}
-
 .btn-flat {
   color: #FCFFE7;
   // padding: 8px 24px;
@@ -80,8 +65,22 @@
   padding: 7px;
   border-radius: 10px;
   width: 50%;
-  font-weight: lighter;
+  // font-weight: lighter;
   line-height: 16px;
   opacity: 0.6;
   transition: opacity 0.3s ease;
+}
+.btn-review {
+  color: #FCFFE7;
+  // padding: 8px 24px;
+  // border-radius: 4px;
+  background: #EB455F;
+  transition: 0.3s ease;
+  font-weight: 500;
+  border-radius: 10px;
+}
+
+.btn-review:hover {
+  background: #2B3467;
+  color: white;
 }

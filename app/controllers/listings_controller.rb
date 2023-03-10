@@ -14,7 +14,6 @@ class ListingsController < ApplicationController
       @listings << Listing.with_kitchen
     end
 
-
     @markers = @listings.map do |listing|
       {
         lat: listing.latitude,
@@ -22,6 +21,7 @@ class ListingsController < ApplicationController
         info_window_html: render_to_string(partial: "info_window", locals: {listing: listing}),
         marker_html: render_to_string(partial: "marker")
       }
+    end
   end
 
   def show

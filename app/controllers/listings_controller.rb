@@ -34,5 +34,6 @@ class ListingsController < ApplicationController
   def show
     @listing = Listing.find(params[:id])
     @booking = Booking.new
+    @markers = [{lat: @listing.latitude, lng: @listing.longitude, marker_html: render_to_string(partial: "marker")}]
   end
 end

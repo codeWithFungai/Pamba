@@ -3,7 +3,7 @@
 <h3>Help a future Le Wagon student.</h3>
 <h3>Submit a review on your stay and personal experiences:</h3>
 <p></p>
-<%= simple_form_for [@booking, @review] do |f| %>
+<%= simple_form_for [booking, @review] do |f| %>
 
   <%= f.input :transport, label: "Transportation", input_html: { rows: 4 } %>
 
@@ -22,5 +22,3 @@
   <%= f.submit "Submit", class: "btn-flat" %>
 <% end %>
 </div>
-
-

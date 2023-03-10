@@ -1,9 +1,9 @@
 <div class="container pt-5 mt-4 mb-4">
 
-<h3>Help a future Le Wagon student.</h3>
-<h3>Submit a review on your stay and personal experiences:</h3>
+<h3><strong>Help a future Le Wagon student.</strong></h3>
+<h3><strong>Submit a review on your stay and personal experiences:</strong></h3>
 <p></p>
-<%= simple_form_for [@booking, @review] do |f| %>
+<%= simple_form_for [booking, @review] do |f| %>
 
   <%= f.input :transport, label: "Transportation", input_html: { rows: 4 } %>
 
@@ -22,5 +22,3 @@
   <%= f.submit "Submit", class: "btn-flat" %>
 <% end %>
 </div>
-
-

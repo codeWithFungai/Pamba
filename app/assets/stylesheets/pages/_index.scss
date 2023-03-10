@@ -6,11 +6,16 @@
 
 .grid-index{
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  width: 100%;
+  grid-template-columns: repeat(3, 1fr);
+  width: 50%;
 }
 
 .grid-container{
   // justify-content: space-between;
-  gap: 50px;
+  gap: 80px;
+  margin-left: 3rem;
+}
+
+.map{
+ margin-left: 9rem;
 }

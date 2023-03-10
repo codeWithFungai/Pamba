@@ -4,6 +4,7 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.booking = Booking.find(params[:booking_id])
+    redirect_to root_path if @review.save
   end
 
   def update

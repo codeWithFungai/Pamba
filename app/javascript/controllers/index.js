@@ -7,5 +7,11 @@ import { application } from "./application"
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import HomepageController from "./homepage_controller"
+application.register("homepage", HomepageController)
+
 import MapController from "./map_controller"
 application.register("map", MapController)
+
+import NavbarController from "./navbar_controller"
+application.register("navbar", NavbarController)

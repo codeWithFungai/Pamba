@@ -1,63 +1,33 @@
-// #EB455F red
-// #FCFFE7 white
-// #BAD7E9 light blue
-// #2B3467 dark blue
-
-.card-container {
-  // flex-direction: row;
-  justify-content: space-between;
-  // margin-left: 50px;
-  // margin-right: 500px;
-}
-
 .card{
   width:  240px;
   height: 320px;
-  // margin: 3rem;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 1rem 0.5rem;
+  border-radius: 12px;
 }
 
 .card-trip{
   display: flex;
   flex-direction: column;
-  // justify-content: center;
-  justify-content: space-between;
-  // justify-content: start;
+  justify-content: start;
   width:  240px;
   height: 320px;
-  // position: relative;
+  position: relative;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
   border: solid 1px #B3B3B3;
 }
 
-.card--bottom--section {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  flex-grow: 1;
-  text-decoration: none;
-}
-
-.card-trip-infos {
-  color: #2B3467;
-}
-
-// .card-trip-infos :hover {
-// color: #5A5A5A;
-// }
 .card-trip-infos p{
   font-size: 12px;
   padding: 0 12px;
   inline-size: 250px;
   overflow: hidden;
-  text-decoration: none;
+  color:black;
 }
 
 .card-trip-infos h2{
   font-size: 16px;
   padding: 0 12px;
-  text-decoration: none;
 }
 
 .card-trip-pricing h3{
@@ -85,6 +55,8 @@
 .no-decoration {
   text-decoration: none;
   color: black;
+  width:  240px;
+  height: 320px;
 }
 
 .fa-heart {
@@ -103,11 +75,6 @@
 
 .card--title p{
   font-family: 'Mukta', sans-serif;
-  // color: #565656;
+  color: #565656;
   font-size: 16px;
-  text-decoration: none;
 }
-
-.card--title h3 :hover{
-  color: #2B3467;
-  }

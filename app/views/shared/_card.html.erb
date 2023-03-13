@@ -1,19 +1,26 @@
-<div class="card-container">
+<div class="card">
   <div class="card-trip">
     <div class = "card-image">
       <img src="<%= listing.image %>" style="width: 240px; height: 180px" />
     </div>
-    <%# <div class = "card-heart">
-      <i class="fa-regular fa-heart"></i>
-    </div> %>
-    <div class='card--bottom--section'>
       <div class="card-trip-infos">
-          <h3 class="card--title"><%= listing.title %></h3>
-          <p><%= listing.description %></p>
+          <h3 class="card--title">
+        <% if listing.description.length > 18 %>
+          <%= listing.description[0...18] %>...
+          <% else %>
+          <%= listing.description %>
+          <% end %>
+          </h3>
+          <p>
+          <% if listing.description.length > 90 %>
+          <%= listing.description[0...90] %>...
+          <% else %>
+          <%= listing.description %>
+          <% end %>
+          </p>
       </div>
       <div class="card-trip-pricing">
         <h3>€<%= listing.price %></h3>
       </div>
-    </div>
   </div>
 </div>

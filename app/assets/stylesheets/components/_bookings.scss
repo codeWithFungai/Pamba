@@ -1,3 +1,8 @@
+// #EB455F red
+// #FCFFE7 white
+// #BAD7E9 light blue
+// #2B3467 dark blue
+
 .bookings--container {
   display: flex;
   flex-wrap: wrap;
@@ -10,6 +15,7 @@
 .bookings--header {
   text-align: center;
   margin: 2rem auto;
+  color: #EB455F;
 }
 
 .bookings-subheader {
@@ -21,6 +27,8 @@
   padding: 1rem 0;
   border-top-right-radius: 12px;
   border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
 }
 
 .booking--card {
@@ -40,6 +48,7 @@
 
 .booking--details {
   padding: 1rem 2rem 1rem 1rem;
+  color: #2B3467;
 }
 
 .booking--details p {

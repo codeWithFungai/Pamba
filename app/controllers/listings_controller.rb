@@ -24,8 +24,14 @@ class ListingsController < ApplicationController
     @prv = false
     @prv = true if params[:private_bathroom] == '1'
 
+    @city = 'Amsterdam'
+    @city = params[:city] if params[:city].present?
 
-    @listings = Listing.all
+    if params[:city].present?
+      @listings = Listing.where(city: params[:city].capitalize)
+    else
+      @listings = Listing.all
+    end
 
     @listings = @listings.where(kitchen: true) if params[:kitchen] == '1'
     @listings = @listings.where(laundry: true) if params[:laundry] == '1'

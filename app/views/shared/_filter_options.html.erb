@@ -3,6 +3,11 @@
 <div class='filter--container'>
   <%= form_with url: listings_path, method: :get do |f| %>
   <%# <form action="/listings"> %>
+    <div class='form--elements'>
+      <%= f.label :city %>
+      <%= f.select :city, ['Amsterdam', 'London', 'Paris'], selected: @city %>
+    </div>
+    <br>
     <div class='form--elements slider'>
       <%= f.label :price %>
       <input type="range" name="price", value=<%= @price %> min="25" max="95" oninput="this.nextElementSibling.value = this.value">

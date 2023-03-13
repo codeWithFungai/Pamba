@@ -4,10 +4,12 @@
   <input placeholder="Choose a City" type="text" id="location" name="location">
 
   <label for="checkin-date"></label>
-  <input placeholder="Check-in date" type="date" id="checkin_date" name="checkin_date">
+  <input placeholder="Check-in date" type="text" onfocus="(this.type='date')"
+        onblur="(this.type='text')" id="checkin_date" name="checkin_date">
 
   <label for="checkout-date"></label>
-  <input placeholder="Check-out date" type="date" id="checkout_date" name="checkout_date">
+  <input placeholder="Check-out date" type="text" onfocus="(this.type='date')"
+        onblur="(this.type='text')" id="checkout_date" name="checkout_date">
 
   <label for="search"></label>
   <button type="submit" value="Submit" id="button">Search &nbsp;<i class="fa fa-search"></i></button>

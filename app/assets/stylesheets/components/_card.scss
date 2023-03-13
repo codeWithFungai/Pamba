@@ -1,8 +1,8 @@
 .card{
   width:  240px;
   height: 320px;
-  margin: 3rem;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 1rem 0.5rem;
+  border-radius: 12px;
 }
 
 .card-trip{
@@ -55,6 +55,8 @@
 .no-decoration {
   text-decoration: none;
   color: black;
+  width:  240px;
+  height: 320px;
 }
 
 .fa-heart {

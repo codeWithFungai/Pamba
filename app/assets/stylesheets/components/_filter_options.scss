@@ -1,0 +1,48 @@
+.filter--div {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 56px;
+}
+
+.filter--container {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  width: 16vw;
+  border: 1px solid #e8e8e8;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1)
+}
+
+.form--elements {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.slider {
+  margin-bottom: 1rem;
+}
+
+.btn--filter {
+  font-size: 1.2rem;
+  color: #FCFFE7;
+  background: #EB455F;
+  transition: 0.3s ease;
+  font-weight: 500;
+  line-height: 16px;
+  border-radius: 10px;
+  width: 100%;
+  padding: 1rem 2rem;
+  border: none;
+}
+
+.btn--filter:hover {
+  background: #b8364a;
+}
+
+.filter--subheader {
+  font-size: 1.2rem;
+  color: #EB455F;
+  font-weight: bold;
+}

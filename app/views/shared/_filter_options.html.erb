@@ -1,8 +1,57 @@
 
 
-
-<%= form_for @listings do |f| %>
-  <%= f.label :Kitchen %>
-  <%= f.check_box :kitchen %>
-  <%= f.submit %>
-<% end %>
+<div class='filter--container'>
+  <%= form_with url: listings_path, method: :get do |f| %>
+  <%# <form action="/listings"> %>
+    <div class='form--elements slider'>
+      <%= f.label :price %>
+      <input type="range" name="price", value=<%= @price %> min="25" max="95" oninput="this.nextElementSibling.value = this.value">
+      <output><%= @price %></output><span>€</span>
+    </div>
+    <div class='form--elements slider'>
+      <%= f.label :distance %>
+      <input type="range" name="distance", value=<%= @distance %> min="0" max="30" oninput="this.nextElementSibling.value = this.value">
+      <output><%= @distance %></output><span>km</span>
+    </div>
+    <br>
+    <h5 class='filter--subheader'>Style:</h5>
+    <div class='form--elements'>
+      <p><%= f.check_box :flat, checked: @flat %></p>
+      <p><%= f.label :flat %></p>
+    </div>
+    <div class='form--elements'>
+      <p><%= f.check_box :townhouse, checked: @town  %></p>
+      <p><%= f.label :townhouse %></p>
+    </div>
+    <div class='form--elements'>
+      <p><%= f.check_box :detached, checked: @detach  %></p>
+      <p><%= f.label :detached %></p>
+    </div>
+    <div class='form--elements'>
+      <p><%= f.check_box :semidetached, checked: @semi  %></p>
+      <p><%= f.label :semidetached %></p>
+    </div>
+    <br>
+    <h5 class='filter--subheader'>No. of Rooms:</h5>
+    <div class='form--elements'>
+      <%= f.select :nr_of_rooms, [1, 2, 3], selected: @rooms %>
+    </div>
+    <br>
+    <br>
+    <h5 class='filter--subheader'>Amenities:</h5>
+    <div class='form--elements'>
+      <p><%= f.check_box :private_bathroom, checked: @prv %></p>
+      <p><%= f.label :private_bathroom %></p>
+    </div>
+    <div class='form--elements'>
+      <p><%= f.check_box :kitchen, checked: @kit%></p>
+      <p><%= f.label :kitchen %></p>
+    </div>
+    <div class='form--elements'>
+      <p><%= f.check_box :laundry, checked: @laud%></p>
+      <p><%= f.label :laundry %></p>
+    </div>
+    <br>
+    <%= f.button "Filter", type: "submit", :class=> "btn--filter" %>
+  <% end %>
+</div>

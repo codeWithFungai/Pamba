@@ -125,7 +125,7 @@ count += 1
     address: address[:street],
     city: address[:city],
     description: descriptions.sample,
-    price: [700, 750, 800, 850, 900, 950, 1000, 1100, 1200, 1300].sample,
+    price: [25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95].sample,
     kitchen: [true, false].sample,
     private_bathroom: [true, false].sample,
     laundry: [true, false].sample,

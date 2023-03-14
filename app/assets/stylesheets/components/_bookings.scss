@@ -6,8 +6,6 @@
 .bookings--container {
   display: flex;
   flex-wrap: wrap;
-  // max-width: 62vw;
-  // padding: 0 6rem;
   justify-content: space-between;
   row-gap: 2rem;
   width: 60%;
@@ -36,10 +34,25 @@
   display: flex;
   border: 1px solid rgb(211, 210, 210);
   border-radius: 12px;
-  gap: 1rem;
-  max-width: 30rem;
+  // gap: 1rem;
+  height: 340px;
+  width: 650px;
+  // max-width: 40rem;
+  position: relative;
+  justify-content: start;
+  // max-height: 22rem;
 
 }
+
+// display: flex;
+// flex-direction: column;
+// justify-content: start;
+// width:  240px;
+// height: 320px;
+// position: relative;
+// box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+// border-radius: 12px;
+// border: solid 1px #B3B3B3;
 
 .booking--card--rightside {
   display: flex;
@@ -52,9 +65,47 @@
   color: #2B3467;
 }
 
-.booking--details p {
-}
-
 .bookings-buttons {
   display: flex;
+}
+
+#booking_start_date_1i{
+  background-image: none;
+  padding-right:0%;
+}
+
+#booking_start_date_2i{
+  background-image: none;
+  padding-right:0%;
+}
+
+#booking_start_date_3i{
+  background-image: none;
+  padding-right:0%;
+}
+
+#booking_end_date_1i{
+  background-image: none;
+  padding-right:0%;
+}
+
+#booking_end_date_2i{
+  background-image: none;
+  padding-right:0%;
+}
+
+#booking_end_date_3i{
+  background-image: none;
+  padding-right:0%;
+}
+
+.form-select.is-valid{
+  border-color:grey;
+}
+
+.btn-secondary{
+  background-color: #EB455F;
+  border-radius: 10px;
+  height: 40px;
+  width: 100px;
 }

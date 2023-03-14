@@ -1,13 +1,11 @@
 <div class="notification">
-<img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large" />
-  <div class="notification-content">
-<div id="message-<%= message.id %>">
-  <small>
-    <strong><%= message.user.nickname %></strong>
-    <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-  </small>
-  <p><%= message.content %></p>
-</div>
+  <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large" />
+    <div class="notification-content">
+  <div id="message-<%= message.id %>">
+    <small>
+      <strong><%= message.user.nickname %></strong>
+      <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+    </small>
+    <p><%= message.content %></p>
+  </div>
  </div>
-
-

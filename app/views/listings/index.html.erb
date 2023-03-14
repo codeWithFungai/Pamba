@@ -1,27 +1,23 @@
 <div class='container--listings--index'>
-<div class='filter--div'>
-  <%= render 'shared/filter_options' %>
-</div>
-<div class='container-fluid'>
-<div class='grid-container'>
-  <div class='row'>
-    <div class='grid-index'>
-        <% @listings.in_groups_of(2, false) do |group| %>
-          <% group.each do |listing| %>
-            <div class='col'>
-              <%= link_to listing_path(listing), class: "no-decoration" do %>
-                <%= render "shared/card", listing: listing %>
-              <% end %>
-            </div>
+  <div class='filter--div'>
+    <%= render 'shared/filter_options' %>
+  </div>
+
+  <div class='grid-index'>
+    <% @listings.in_groups_of(2, false) do |group| %>
+      <% group.each do |listing|%>
+        <div class='col'>
+          <%= link_to listing_path(listing,checkin_date: @checkin_date,checkout_date: @checkout_date), class: "no-decoration" do %>
+            <%= render "shared/card", listing: listing %>
           <% end %>
-        <% end %>
-      </div>
-      <div class='col-lg-4'>
-        <div style="position: sticky; top: 0;">
-          <div class='map' data-controller="map" data-map-markers-value="<%= @markers.to_json %>" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-          </div>
         </div>
-      </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class='map--container'>
+    <div id='map--detail' data-controller="map" data-map-markers-value="<%= @markers.to_json %>" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
   </div>
+
 </div>

@@ -62,6 +62,9 @@ class ListingsController < ApplicationController
         marker_html: render_to_string(partial: "marker")
       }
     end
+
+    @checkin_date = params[:checkin_date]
+    @checkout_date = params[:checkout_date]
   end
 
   def show
@@ -95,6 +98,8 @@ class ListingsController < ApplicationController
      @trip_price = HTTParty.get("https://gateway.apiportal.ns.nl/reisinformatie-api/api/v3/price?fromStation=asd&toStation=amr&travelClass=SECOND_CLASS&
                                      travelType=single&isJointJourney=false&adults=1&children=0",
                                      headers: headers).parsed_response["payload"]["prices"][0]["totalPriceInCents"]
+    @booking = Booking.new(start_date: params[:checkin_date], end_date: params[:checkout_date])
+    @markers = [ {lat: @listing.latitude, lng: @listing.longitude, marker_html: render_to_string(partial: "marker") }]
   end
 
 end

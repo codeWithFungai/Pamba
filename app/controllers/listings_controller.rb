@@ -48,13 +48,13 @@ class ListingsController < ApplicationController
     
 
      response = HTTParty.get("https://gateway.apiportal.ns.nl/reisinformatie-api/api/v2/stations/nearest?lat=
-                                     #{@listing.latitude}&lng=-#{@listing.longitude}&limit=2",
+                                     #{@listing.latitude}&lng=#{@listing.longitude}",
                                      headers: headers)
      @station_depart_name = response.parsed_response["payload"].first["namen"]["lang"]
      @station_depart_code = response.parsed_response["payload"].first["code"]
 
      response2 = HTTParty.get("https://gateway.apiportal.ns.nl/reisinformatie-api/api/v2/stations/nearest?lat=
-                                     #{amsterdam["latitude"]}&lng=-#{amsterdam["longitude"]}&limit=2",
+                                     #{amsterdam["latitude"]}&lng=#{amsterdam["longitude"]}",
                                      headers: headers)
      @station_arrive_name = response2.parsed_response["payload"].first["namen"]["lang"]
      @station_arrive_code = response2.parsed_response["payload"].first["code"]

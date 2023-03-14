@@ -1,24 +1,24 @@
 <div class="container pt-5 mt-4 mb-4">
 
-<h3><strong>Help a future Le Wagon student.</strong></h3>
-<h3><strong>Submit a review on your stay and personal experiences:</strong></h3>
-<p></p>
-<%= simple_form_for [booking, @review] do |f| %>
+  <h3><strong>Help a future Le Wagon student.</strong></h3>
+  <h3><strong>Submit a review on your stay and personal experiences:</strong></h3>
+  <p></p>
 
-  <%= f.input :transport, label: "Transportation", input_html: { rows: 4 } %>
+  <div class='container--review'>
+    <%= simple_form_for [booking, @review] do |f| %>
+      <div class='review--form--left'>
+        <%= f.input :content, label: "Your review", input_html: { rows: 6 } %>
+        <%= f.input :rating, label: "Rating", collection: 1..5 %>
+        <%= f.input :transport, label: "Preferred mode of transportation", input_html: { rows: 4 } %>
+        <%= f.input :groceries, label: "Favorite place for groceries", input_html: { rows: 4 }%>
+        <%= f.input :restaurant, label: "Favorite restaurants/bars" %>
+      </div>
 
-  <%= f.input :groceries, label: "Groceries", input_html: { rows: 4 }%>
-
-  <%= f.input :activities, label: "Activities", input_html: { rows: 4 } %>
-
-  <%= f.input :restaurant, label: "Favorite Restaurants/Bars" %>
-
-  <%= f.input :tips, label: "Tips", input_html: { rows: 4 } %>
-
-  <%= f.input :content, label: "Your review", input_html: { rows: 6 } %>
-
-  <%= f.input :rating, label: "Rating", collection: 1..5 %>
-
-  <%= f.submit "Submit", class: "btn-flat" %>
-<% end %>
+      <div class='review--form--right'>
+        <%= f.input :activities, label: "Activities you enjoyed", input_html: { rows: 4 } %>
+        <%= f.input :tips, label: "Any additional tips you have", input_html: { rows: 4 } %>
+        <%= f.submit "Submit", class: "btn-flat" %>
+      </div>
+    <% end %>
+  </div>
 </div>

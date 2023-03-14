@@ -1,13 +1,13 @@
 
 <div class="container p-0">
-      <h2 class="card--title--show"><strong>Details of <%= @listing.title %></strong></h2>
+      <h1 class="card--title--show"><strong>Details of <%= @listing.title %></strong></h1>
            <div class="d-flex justify-content-between">
                  <% if @reviews.present? %>
                  <p> <%= @reviews.first.rating %> <i class="fa-solid fa-star"></i>  Reviews: <%=@reviews.count %></p>
                  <% end %>
           </div>
                    <div class="d-flex justify-content-between">
-                        <p> <%= @listing.city %>, Distance to campus :: <%= @listing.distance.round(2)%> km </p>
+                        <p style="color: #2B3467"> <%= @listing.city %>, Distance to campus :: <%= @listing.distance.round(2)%> km </p>
                          <p>Save <i class="fa-regular fa-heart"></i> Share <i class="fa-sharp fa-solid fa-arrow-up-from-bracket"></i></p>
                    </div>
   <div class="p-0 m-3">
@@ -33,21 +33,26 @@
               <div class="p-2" style="border:1px solid #2B3467; max-height: 300px; overflow:scroll; border-radius: 12px">
                     <div class="info-details">
                           <h3 class="card--title">Property Details</h3>
-                          <p> <i class="fa-solid fa-children"></i> 4 guests  | <i class="fa-solid fa-people-roof"></i> 2 bedrooms | <i class="fa-solid fa-bed"></i> 4 beds | <i class="fa-solid fa-bath"></i> 2 baths</p>
+                          <p style="color: #2B3467"><i class="fa-solid fa-children"></i> 4 guests  | <i class="fa-solid fa-people-roof" style="color: #2B3467"></i> 2 bedrooms | <i class="fa-solid fa-bed" style="color: #2B3467"></i> 4 beds | <i class="fa-solid fa-bath" style="color: #2B3467"></i> 2 baths</p>
                           <p><%= @listing.description %></p>
                           <div class="card-trip-infos">
-                           <p class="card-trip-pricing"><strong>Price: €<%= @listing.price %> / night</strong></p>
+                           <h5 style="color: #2B3467"><strong>For: €<%= @listing.price %> / night</strong></h5>
                           </div>
                     </div>
 
                     <div class="offers">
                       <br>
                       <h3>Amenities:</h3>
-                      <p><i class="fa-solid fa-kitchen-set"></i>-Kitchen</p>
-                      <p><i class="fa-solid fa-desktop"></i>-Dedicated workspace</>
-                      <p><i class="fa-solid fa-wifi"></i>-Wifi </p>
-                      <p><i class="fa-solid fa-water-ladder"></i>-Pool</p>
+                      <% if @kit = true %>
+                      <p><i class="fa-solid fa-kitchen-set"></i>"-Kitchen"</p>
+                      <% end %>
+                      <% if %>
+                      <p><i class="fa-solid fa-bath"></i>-Private Bathroom</p>
+                      <% end %>
+                      <% if @laud = true %>
                       <p><i class="fa-solid fa-shirt"></i>-Washer/Dryer</p>
+                      <% end %>
+                      <p><i class="fa-solid fa-wifi"></i>-Wifi </p>
                       <p><i class="fa-solid fa-tv"></i>-TV</p>
                     </div>
 
@@ -58,9 +63,8 @@
                                 <p><i class="fa-solid fa-car"></i> <strong>Drive Right Up</strong><br>
                                 You can park your vechile in the private driveway</p>
                                 <p><i class="fa-regular fa-star"></i> <strong>Experienced host</strong><br>
-                                Novasol has 240 reviews for other places.</p><br>
+                                Novasol has 24 reviews from other guests.</p><br>
                                 <p>- Free parking on site<br>
-                                - Indoor swimming pool<br>
                                 - Not suitable for youth groups<br>
                                 - Optional: Bedlinen incl towels<br><br>
                                 No pets allowed
@@ -73,16 +77,16 @@
       <div class="container-tablet" style=" width: 40%; margin-top: 3px">
          <div class="p-2" style="border:1px solid #2B3467; max-height: 300px; overflow:scroll; border-radius: 12px">
                     <div class="d-flex justify-content-between">
-                          <div class="arrival">
-                                <h3 class="card--title">Commute Options</h3>
-                                <p><i class="fa-solid fa-bus"></i><strong style="margin-left: 5px">Bus</strong><br>
-                                 Connexxion 160 - 162.</p>
-                                <p><i class="fa-solid fa-train"></i> <strong>Train</strong><br>
-                                 NS Sprinter Haarlem - Amstelveenseweg.</p>
-                                <p><i class="fa-solid fa-train-tram"></i> <strong>Tram</strong><br>
-                                 Not Applicable</p>
-                                <p><i class="fa-solid fa-bicycle"></i> <strong>Bike</strong><br>
-                                Ride Time :: 45 minutes</p>
+                          <div class="arrival"> 
+                                <h3 class="card--title">Commute Options To Campus</h3>
+                                <p><i class="fa-solid fa-person-walking" style="color: #2B3467"></i> <strong style="margin-left: 10px; color: #2B3467">Walking</strong><br>
+                                 Walk Time:: <%=@walking%></p>
+                               <p><i class="fa-solid fa-bicycle" style="color: #2B3467"></i> <strong style="margin-left: 5px; color: #2B3467">Biking</strong><br>
+                                Ride Time :: <%=@biking%></p>
+                                <p><i class="fa-solid fa-car" style="color: #2B3467"></i> <strong style="margin-left: 5px; color: #2B3467">Driving</strong><br>
+                                 Drive Time :: <%=@driving%></p>
+                                <p><i class="fa-solid fa-train" style="color: #2B3467"></i> <strong style="margin-left: 5px; color: #2B3467">Train</strong><br>
+                                 From <%=@station_depart_name%> To <%=@station_arrive_name%> For €<%=(@trip_price/100).to_f%></p>
                           </div>
                     </div>
           </div>

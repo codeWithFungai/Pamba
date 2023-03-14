@@ -3,16 +3,25 @@
 // #BAD7E9 light blue
 // #2B3467 dark blue
 
-// #message_content{
-//   border-radius: 10px;
-//   height: 40px;
-// }
-// .sender-box{
-//   position: sticky;
+// h3{
+//   text-align: center;
 // }
 
+#message_content{
+  border-radius: 10px;
+  height: 40px;
+}
+
+.sender-box{
+  position: fixed;
+  bottom: 0;
+  // left: 5px;
+  // right: 5px;
+  background-color: white;
+}
+
 .message-row {
-  // margin-bottom: 10px;
+  margin-bottom: 10px;
   padding: 8px 0;
 }
 

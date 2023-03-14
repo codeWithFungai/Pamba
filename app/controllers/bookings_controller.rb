@@ -7,7 +7,6 @@ class BookingsController < ApplicationController
   end
 
   def show
-    # raise
     @listing = @booking.listing
   end
 
@@ -15,7 +14,6 @@ class BookingsController < ApplicationController
     @bookings = Booking.where(user: current_user)
     @review = Review.new
     @chatroom = Chatroom.last
-    raise
     @message = Message.new
   end
 

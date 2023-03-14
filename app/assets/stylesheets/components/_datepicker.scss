@@ -13,7 +13,7 @@
   }
 }
 
-#checkin_date, #checkout_date, #location {
+#checkin_date, #checkout_date, #city {
   border-radius: 10px;
   border: 1px solid #ccc;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
@@ -22,13 +22,13 @@
 }
 
 // Search form
-.location {
+.city {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.location input[type="text"] {
+.city input[type="text"] {
   border-radius: 10px;
   outline: none;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);

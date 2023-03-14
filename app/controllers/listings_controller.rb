@@ -1,6 +1,7 @@
 class ListingsController < ApplicationController
   def index
     # raise
+    @listings = Listing.all
     @distance = 30
     @distance = params[:distance] if params[:distance].present?
     @price = 95
@@ -27,12 +28,12 @@ class ListingsController < ApplicationController
     @city = 'Amsterdam'
     @city = params[:city] if params[:city].present?
 
-    if params[:city].present?
-      @listings = Listing.where(city: params[:city].capitalize)
-    else
-      @listings = Listing.all
-    end
+    # if params[:city].present?
+    # else
 
+    # end
+
+    @listings = @listings.where(city: params[:city].capitalize)
     @listings = @listings.where(kitchen: true) if params[:kitchen] == '1'
     @listings = @listings.where(laundry: true) if params[:laundry] == '1'
     @listings = @listings.where(private_bathroom: true) if params[:private_bathroom] == '1'

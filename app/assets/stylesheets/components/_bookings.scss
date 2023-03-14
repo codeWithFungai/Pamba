@@ -6,8 +6,6 @@
 .bookings--container {
   display: flex;
   flex-wrap: wrap;
-  // max-width: 62vw;
-  // padding: 0 6rem;
   justify-content: space-between;
   row-gap: 2rem;
   width: 60%;
@@ -67,9 +65,47 @@
   color: #2B3467;
 }
 
-// .booking--details p {
-// }
-
 .bookings-buttons {
   display: flex;
+}
+
+#booking_start_date_1i{
+  background-image: none;
+  padding-right:0%;
+}
+
+#booking_start_date_2i{
+  background-image: none;
+  padding-right:0%;
+}
+
+#booking_start_date_3i{
+  background-image: none;
+  padding-right:0%;
+}
+
+#booking_end_date_1i{
+  background-image: none;
+  padding-right:0%;
+}
+
+#booking_end_date_2i{
+  background-image: none;
+  padding-right:0%;
+}
+
+#booking_end_date_3i{
+  background-image: none;
+  padding-right:0%;
+}
+
+.form-select.is-valid{
+  border-color:grey;
+}
+
+.btn-secondary{
+  background-color: #EB455F;
+  border-radius: 10px;
+  height: 40px;
+  width: 100px;
 }

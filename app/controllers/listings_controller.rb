@@ -107,7 +107,7 @@ class ListingsController < ApplicationController
       
      @biking = HTTParty.get("https://api.distancematrix.ai/maps/api/distancematrix/json?origins=#{@listing.latitude},#{@listing.longitude}&destinations=#{amsterdam["latitude"]},#{amsterdam["longitude"]}
                                     &mode=bicycling&departure_time=now&key=WeUbWu5Qhruy3Wv27CFMukdV0xOMH").parsed_response["rows"][0]["elements"][0]["duration"]["text"]
-    #  @result = @biking
+
     @booking = Booking.new(start_date: params[:checkin_date], end_date: params[:checkout_date])
     @markers = [ {lat: @listing.latitude, lng: @listing.longitude, marker_html: render_to_string(partial: "marker") }]
   end

@@ -99,3 +99,17 @@
   height: 40px;
   width: 100px;
 }
+
+.total--price {
+  font-weight: bold;
+  font-size: 1.4rem;
+  color: #2B3467;
+  margin: 0;
+}
+
+#btn-booking-price-book {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+}

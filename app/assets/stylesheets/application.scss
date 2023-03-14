@@ -14,3 +14,12 @@
 .top{
   padding-top: 5rem;
 }
+
+*::-webkit-scrollbar-thumb {
+  background-color:  #2B3467;    /* color of the scroll thumb */
+  border-radius: 25px;       /* roundness of the scroll thumb */
+}
+
+*::-webkit-scrollbar {
+  width: 4px;               /* width of the entire scrollbar */
+}

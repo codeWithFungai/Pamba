@@ -7,11 +7,12 @@ h3 {
   color: #EB455F;
 }
 .banner {
+  display: flex;
+  flex-direction: column;
   background-size: cover;
   background-position: center;
   padding: 150px 0;
   align-items: center;
-  justify-content: space-between;
 }
 
 .banner h1 {
@@ -20,16 +21,19 @@ h3 {
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-size: 32px;
   font-weight: bold;
-  justify-content: space-between;
-  background-position: center;
 }
 
 .banner p {
   margin: 0;
-  font-size: 25px;
+  font-size: 18px;
   font-weight: 500;
   color: #FCFFE7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  justify-content: space-between;
-  background-position: center;
+  align-items: center;
+}
+
+.button-center{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

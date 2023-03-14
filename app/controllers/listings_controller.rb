@@ -1,25 +1,58 @@
 class ListingsController < ApplicationController
-
   def index
-    @listings = []
+    # raise
+    @distance = 30
+    @distance = params[:distance] if params[:distance].present?
+    @price = 95
+    @price = params[:price] if params[:price].present?
+    @rooms = 1
+    @rooms = params[:nr_of_rooms] if params[:nr_of_rooms].present?
 
-    if params[:location].present?
-      @listings = Listing.where(city: params[:location].capitalize)
+    @flat = false
+    @flat = true if params[:flat] == '1'
+    @town = false
+    @town = true if params[:townhouse] == '1'
+    @semi = false
+    @semi = true if params[:semidetached] == '1'
+    @detach = false
+    @detach = true if params[:detached] == '1'
+
+    @kit = false
+    @kit = true if params[:kitchen] == '1'
+    @laud = false
+    @laud = true if params[:laundry] == '1'
+    @prv = false
+    @prv = true if params[:private_bathroom] == '1'
+
+    @city = 'Amsterdam'
+    @city = params[:city] if params[:city].present?
+
+    if params[:city].present?
+      @listings = Listing.where(city: params[:city].capitalize)
     else
       @listings = Listing.all
     end
 
-    if params[:with_kitchen].present?
-      @listings << Listing.with_kitchen
+    @listings = @listings.where(kitchen: true) if params[:kitchen] == '1'
+    @listings = @listings.where(laundry: true) if params[:laundry] == '1'
+    @listings = @listings.where(private_bathroom: true) if params[:private_bathroom] == '1'
+    @listings = @listings.where("distance <  ?", params[:distance].to_i) if params[:distance].present?
+    @listings = @listings.where("price <  ?", params[:price].to_i) if params[:price].present?
+    @listings = @listings.where("nr_of_rooms >=  ?", params[:nr_of_rooms].to_i) if params[:nr_of_rooms].present?
+
+    @towns = @listings.where(style: "Townhouse") if params[:townhouse] == '1'
+    @flats = @listings.where(style: "Flat") if params[:flat] == '1'
+    @semis = @listings.where(style: "Semi-detached") if params[:semidetached] == '1'
+    @detachs = @listings.where(style: "Detached") if params[:detached] == '1'
+
+    if @towns.present? || @flats.present? || @semis.present? || @detachs.present?
+      @listings = []
     end
 
-    if params[:with_laundry].present?
-      @listings << Listing.with_laundry
-    end
-
-    if params[:with_private_bathroom].present?
-      @listings << Listing.with_private_bathroom
-    end
+    @listings += @towns unless @towns.nil?
+    @listings += @flats unless @flats.nil?
+    @listings += @semis unless @semis.nil?
+    @listings += @detachs unless @detachs.nil?
 
     @markers = @listings.map do |listing|
       {

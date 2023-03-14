@@ -1,8 +1,6 @@
 require 'faker'
 
 Listing.destroy_all
-Booking.destroy_all
-Review.destroy_all
 
 addresses = [
     {street: 'Lizzy Ansinghstraat 20', city: 'Amsterdam'},
@@ -121,7 +119,17 @@ count += 1
             'https://source.unsplash.com/random/500x507/?apartment',
             'https://source.unsplash.com/random/500x508/?apartment',
             'https://source.unsplash.com/random/500x509/?apartment',
-            'https://source.unsplash.com/random/500x510/?apartment'].sample,
+            'https://source.unsplash.com/random/500x510/?apartment',
+            'https://source.unsplash.com/random/500x511/?apartment',
+            'https://source.unsplash.com/random/500x512/?apartment',
+            'https://source.unsplash.com/random/500x513/?apartment',
+            'https://source.unsplash.com/random/500x514/?apartment',
+            'https://source.unsplash.com/random/500x515/?apartment',
+            'https://source.unsplash.com/random/500x516/?apartment',
+            'https://source.unsplash.com/random/500x517/?apartment',
+            'https://source.unsplash.com/random/500x518/?apartment',
+            'https://source.unsplash.com/random/500x519/?apartment',
+            'https://source.unsplash.com/random/500x520/?apartment'].sample,
     address: address[:street],
     city: address[:city],
     description: descriptions.sample,

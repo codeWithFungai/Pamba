@@ -1,11 +1,16 @@
 <div class="notification">
-  <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large" />
-    <div class="notification-content">
-  <div id="message-<%= message.id %>">
-    <small>
-      <strong><%= message.user.nickname %></strong>
-      <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-    </small>
-    <p><%= message.content %></p>
+  <% if message.user == current_user %>
+    <img src='https://kitt.lewagon.com/placeholder/users/Eschults' class="avatar-large" />
+  <% else %>
+    <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large" />
+  <% end %>
+  <div class="notification-content">
+    <div id="message-<%= message.id %>">
+      <small>
+        <strong><%= message.user.nickname %></strong>
+        <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+      </small>
+      <p><%= message.content %></p>
+    </div>
   </div>
- </div>
+</div>

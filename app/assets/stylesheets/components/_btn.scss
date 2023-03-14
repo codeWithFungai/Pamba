@@ -59,6 +59,22 @@
   border-radius: 10px;
   width: 50%;
   padding: 7px;
+  height: 40px;
+}
+
+#btn--chatroom {
+  color: #FCFFE7;
+  background: #2B3467;
+  transition: 0.3s ease;
+  font-weight: 500;
+  line-height: 40px;
+  border-radius: 10px;
+  width: 50%;
+  padding: 7px;
+}
+#btn--chatroom:hover {
+  background: #EB455F;
+  color: white;
 }
 
 #btn--delete {
@@ -68,10 +84,20 @@
   border-radius: 10px;
   width: 50%;
   // font-weight: lighter;
-  line-height: 16px;
+  // line-height: 16px;
   opacity: 0.6;
   transition: opacity 0.3s ease;
+  text-align: center;
 }
+
+// color: #4A4A4A;
+//   border: 1px solid #4A4A4A;
+//   padding: 8px 24px;
+//   border-radius: 50px;
+//   font-weight: lighter;
+//   opacity: 0.6;
+//   transition: opacity 0.3s ease;
+
 .btn-review {
   color: #FCFFE7;
   // padding: 8px 24px;
@@ -80,6 +106,7 @@
   transition: 0.3s ease;
   font-weight: 500;
   border-radius: 10px;
+  width: 50%;
 }
 
 .btn-review:hover {

@@ -2,41 +2,43 @@
 //   width: 50%;
 // }
 .chatbox{
-  height: 60vh;
+  // height: 30vh;
   overflow-y: scroll;
 }
 
 .form-control{
-  border-radius: 10px; 
+  border-radius: 10px;
 }
 
-// .chatroom {
-//   background: white;
-//   margin-top: 9px;
-//   height: calc(100vh - 75px);
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: space-between;
-//   flex-grow: 1;
-// }
+.chatroom {
+  background: white;
+  margin-top: 9px;
+  height: calc(100vh - 75px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+}
 
-//   h1 {
-//     border-bottom: 1px solid $gray-200;
-//     margin-bottom: 0;
-//     padding: 1rem;
-//   }
+  h2 {
+    border-bottom: 1px solid $gray-200;
+    margin-bottom: 0;
+    padding: 1rem;
+    color: #EB455F;
+    text-align: center;
+  }
 
-//   .messages {
-//     height: 100%;
-//     overflow: scroll;
-//     padding: 1rem;
-//   }
+  .messages {
+    height: 100%;
+    overflow: scroll;
+    padding: 1rem;
+  }
 
-//   #new_message {
-//     border-top: 1px solid $gray-200;
-//     padding: 1rem;
+  #new_message {
+    border-top: 1px solid $gray-200;
+    padding: 1rem;
 
-//     .form-group {
-//       margin-bottom: 0;
-//     }
-//   }
+    .form-group {
+      margin-bottom: 0;
+    }
+  }

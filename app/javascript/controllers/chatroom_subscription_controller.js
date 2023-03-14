@@ -13,7 +13,7 @@ export default class extends Controller {
     console.log(`Subscribe to the chatroom with the id ${this.chatroomIdValue}.`)
   }
 
-    disconnect() {
+  disconnect() {
     console.log("Unsubscribed from the chatroom")
     this.channel.unsubscribe()
   }
@@ -23,10 +23,11 @@ export default class extends Controller {
   }
 
   #insertMessageAndScrollDown(data) {
-    this.messagesTarget.insertAdjacentHTML("beforeend", messageElement)
-    this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
+    console.log("adfvahmfbqwmdbasmdb")
     const currentUserIsSender = this.currentUserIdValue === data.sender_id
     const messageElement = this.#buildMessageElement(currentUserIsSender, data.message)
+    this.messagesTarget.insertAdjacentHTML("beforeend", messageElement)
+    this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
   }
 
   #buildMessageElement(currentUserIsSender, message) {
@@ -46,5 +47,3 @@ export default class extends Controller {
     return currentUserIsSender ? "sender-style" : "receiver-style"
   }
 }
-
-

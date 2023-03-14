@@ -7,7 +7,6 @@ class BookingsController < ApplicationController
   end
 
   def show
-    # raise
     @listing = @booking.listing
   end
 

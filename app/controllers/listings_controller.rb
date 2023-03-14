@@ -62,11 +62,14 @@ class ListingsController < ApplicationController
         marker_html: render_to_string(partial: "marker")
       }
     end
+
+    @checkin_date = params[:checkin_date]
+    @checkout_date = params[:checkout_date]
   end
 
   def show
     @listing = Listing.find(params[:id])
-    @booking = Booking.new
+    @booking = Booking.new(start_date: params[:checkin_date], end_date: params[:checkout_date])
     @markers = [ {lat: @listing.latitude, lng: @listing.longitude, marker_html: render_to_string(partial: "marker") }]
   end
 end

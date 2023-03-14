@@ -1,5 +1,4 @@
 <div class='container--listings--index'>
-
   <div class='filter--div'>
     <%= render 'shared/filter_options' %>
   </div>
@@ -8,7 +7,7 @@
     <% @listings.in_groups_of(2, false) do |group| %>
       <% group.each do |listing|%>
         <div class='col'>
-          <%= link_to listing_path(listing), class: "no-decoration" do %>
+          <%= link_to listing_path(listing,checkin_date: @checkin_date,checkout_date: @checkout_date), class: "no-decoration" do %>
             <%= render "shared/card", listing: listing %>
           <% end %>
         </div>

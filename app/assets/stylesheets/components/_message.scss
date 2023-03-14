@@ -3,9 +3,10 @@
 // #BAD7E9 light blue
 // #2B3467 dark blue
 
-// h3{
-//   text-align: center;
-// }
+.message-row {
+  margin-bottom: 10px;
+  padding: 8px;
+}
 
 #message_content{
   border-radius: 10px;
@@ -15,20 +16,13 @@
 .sender-box{
   position: fixed;
   bottom: 0;
-  // left: 5px;
-  // right: 5px;
   background-color: white;
-}
-
-.message-row {
-  margin-bottom: 10px;
-  padding: 8px 0;
+  width: 83%;
 }
 
 // To style the message itself
 .sender-style, .receiver-style {
-  width: 70%;
-  max-width: 400px;
+  width: 30rem;
   border-radius: 4px;
   padding: 8px;
   min-height: 80px;

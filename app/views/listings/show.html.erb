@@ -1,6 +1,6 @@
 
 <div class="container p-0">
-      <h2 class="card--title--show"><strong>Details of <%= @listing.title %></strong></h2>
+      <h1 class="card--title--show"><strong>Details of <%= @listing.title %></strong></h1>
            <div class="d-flex justify-content-between">
                  <% if @reviews.present? %>
                  <p> <%= @reviews.first.rating %> <i class="fa-solid fa-star"></i>  Reviews: <%=@reviews.count %></p>
@@ -43,11 +43,16 @@
                     <div class="offers">
                       <br>
                       <h3>Amenities:</h3>
-                      <p><i class="fa-solid fa-kitchen-set"></i>-Kitchen</p>
-                      <p><i class="fa-solid fa-desktop"></i>-Dedicated workspace</>
-                      <p><i class="fa-solid fa-wifi"></i>-Wifi </p>
-                      <p><i class="fa-solid fa-water-ladder"></i>-Pool</p>
+                      <% if @kit = true %>
+                      <p><i class="fa-solid fa-kitchen-set"></i>"-Kitchen"</p>
+                      <% end %>
+                      <% if %>
+                      <p><i class="fa-solid fa-bath"></i>-Private Bathroom</p>
+                      <% end %>
+                      <% if @laud = true %>
                       <p><i class="fa-solid fa-shirt"></i>-Washer/Dryer</p>
+                      <% end %>
+                      <p><i class="fa-solid fa-wifi"></i>-Wifi </p>
                       <p><i class="fa-solid fa-tv"></i>-TV</p>
                     </div>
 
@@ -58,9 +63,8 @@
                                 <p><i class="fa-solid fa-car"></i> <strong>Drive Right Up</strong><br>
                                 You can park your vechile in the private driveway</p>
                                 <p><i class="fa-regular fa-star"></i> <strong>Experienced host</strong><br>
-                                Novasol has 240 reviews for other places.</p><br>
+                                Novasol has 24 reviews from other guests.</p><br>
                                 <p>- Free parking on site<br>
-                                - Indoor swimming pool<br>
                                 - Not suitable for youth groups<br>
                                 - Optional: Bedlinen incl towels<br><br>
                                 No pets allowed

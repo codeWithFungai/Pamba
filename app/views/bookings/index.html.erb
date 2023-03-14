@@ -1,7 +1,6 @@
 <h2 class='bookings--header'><strong>My Dashboard</strong></h2>
 <div class="container d-flex justify-content-between w-100">
 <div class='bookings--container'>
-  <%# <h3 class='bookings-subheader'><strong>Bookings<strong></h3> %>
   <% @bookings.each do |booking| %>
     <div class='booking--card'>
       <%= render 'shared/card', listing: booking.listing %>
@@ -16,7 +15,6 @@
           <button type="button" class="btn-review" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Leave a review
           </button>
-          <%# <a class="btn" action='bookings#destroy' id='btn--delete' href="#">Delete Booking</a> %>
           <%= link_to 'Chatroom', chatroom_path(booking.listing.chatroom), class: "btn", id: 'btn--chatroom' %>
           <%= link_to 'Delete Booking', booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn", id: 'btn--delete' %>
         </div>
@@ -39,7 +37,4 @@
   <% end %>
 
 </div>
-<%# <div class="chatbox border rounded">
-<%#= render "chatrooms/show" %>
-<%# </div> %>
 </div>

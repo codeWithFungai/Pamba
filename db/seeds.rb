@@ -1,8 +1,6 @@
 require 'faker'
 
 Listing.destroy_all
-Booking.destroy_all
-Review.destroy_all
 
 addresses = [
     {street: 'Lizzy Ansinghstraat 20', city: 'Amsterdam'},

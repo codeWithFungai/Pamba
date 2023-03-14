@@ -10,13 +10,17 @@
     <br>
     <div class='form--elements slider'>
       <%= f.label :price %>
-      <input type="range" name="price", value=<%= @price %> min="25" max="95" oninput="this.nextElementSibling.value = this.value">
-      <output><%= @price %></output><span>€</span>
+      <div class='slider-control'>
+        <input type="range" name="price", value=<%= @price %> min="25" max="95" oninput="this.nextElementSibling.value = this.value">
+        <output><%= @price %></output><span>€</span>
+      </div>
     </div>
     <div class='form--elements slider'>
       <%= f.label :distance %>
-      <input type="range" name="distance", value=<%= @distance %> min="0" max="30" oninput="this.nextElementSibling.value = this.value">
-      <output><%= @distance %></output><span>km</span>
+      <div class='slider-control'>
+        <input type="range" name="distance", value=<%= @distance %> min="0" max="30" oninput="this.nextElementSibling.value = this.value">
+        <output><%= @distance %></output><span>km</span>
+      </div>
     </div>
     <br>
     <h5 class='filter--subheader'>Style:</h5>
@@ -37,11 +41,12 @@
       <p><%= f.label :semidetached %></p>
     </div>
     <br>
-    <h5 class='filter--subheader'>No. of Rooms:</h5>
-    <div class='form--elements'>
-      <%= f.select :nr_of_rooms, [1, 2, 3], selected: @rooms %>
+    <div class='num--of--rooms'>
+      <h5 class='filter--subheader' id='rooms--title'>No. of Rooms:</h5>
+      <div class='form--elements'>
+        <%= f.select :nr_of_rooms, [1, 2, 3], selected: @rooms %>
+      </div>
     </div>
-    <br>
     <br>
     <h5 class='filter--subheader'>Amenities:</h5>
     <div class='form--elements'>

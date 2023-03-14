@@ -1,8 +1,38 @@
+ <%  avatar = ['https://source.unsplash.com/random/500x500/?face',
+            'https://source.unsplash.com/random/500x501/?face',
+            'https://source.unsplash.com/random/500x502/?face',
+            'https://source.unsplash.com/random/500x503/?face',
+            'https://source.unsplash.com/random/500x504/?face',
+            'https://source.unsplash.com/random/500x505/?face',
+            'https://source.unsplash.com/random/500x506/?face',
+            'https://source.unsplash.com/random/500x507/?face',
+            'https://source.unsplash.com/random/500x508/?face',
+            'https://source.unsplash.com/random/500x509/?face',
+            'https://source.unsplash.com/random/500x510/?face',
+            'https://source.unsplash.com/random/500x511/?face',
+            'https://source.unsplash.com/random/500x512/?face',
+            'https://source.unsplash.com/random/500x513/?face',
+            'https://source.unsplash.com/random/500x514/?face',
+            'https://source.unsplash.com/random/500x515/?face',
+            'https://source.unsplash.com/random/500x516/?face',
+            'https://source.unsplash.com/random/500x517/?face',
+            'https://source.unsplash.com/random/500x518/?face',
+            'https://source.unsplash.com/random/500x519/?face',
+            'https://source.unsplash.com/random/500x520/?face',
+            'https://source.unsplash.com/random/500x521/?face',
+            'https://source.unsplash.com/random/500x522/?face',
+            'https://source.unsplash.com/random/500x523/?face',
+            'https://source.unsplash.com/random/500x524/?face',
+            'https://source.unsplash.com/random/500x525/?face',
+            'https://source.unsplash.com/random/500x526/?face']%>
+
+
+
 <h3 class="card--title">Reviews</h3>
 <div class="notification">
   <div class="notification-content">
       <% @listing.reviews.each do |review| %>
-        <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large" />
+        <img src= "<%=avatar.sample%>"  class="avatar-large"/>
             <p><small>14th January</small></p>
                   <p style="text-overflow: ellipsis;">
                   <%= review.content %>

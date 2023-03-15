@@ -1,6 +1,11 @@
 // .notification-content{
 //   width: 50%;
 // }
+
+// .chatroom-container {
+// border-radius: 16px;
+// }
+
 .chatbox{
   overflow-y: scroll;
 }
@@ -17,6 +22,7 @@
   flex-direction: column;
   justify-content: space-between;
   flex-grow: 1;
+  border-radius: 16px;
 }
 
   h2 {

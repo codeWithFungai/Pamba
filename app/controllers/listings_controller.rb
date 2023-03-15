@@ -1,11 +1,12 @@
 class ListingsController < ApplicationController
   def index
     # raise
+    @listings = Listing.all
     @distance = 30
     @distance = params[:distance] if params[:distance].present?
     @price = 95
     @price = params[:price] if params[:price].present?
-    @rooms = 1
+    # @rooms = 1
     @rooms = params[:nr_of_rooms] if params[:nr_of_rooms].present?
 
     @flat = false
@@ -27,18 +28,18 @@ class ListingsController < ApplicationController
     @city = 'Amsterdam'
     @city = params[:city] if params[:city].present?
 
-    if params[:city].present?
-      @listings = Listing.where(city: params[:city].capitalize)
-    else
-      @listings = Listing.all
-    end
+    # if params[:city].present?
+    # else
 
+    # end
+
+    @listings = @listings.where(city: params[:city].capitalize)
     @listings = @listings.where(kitchen: true) if params[:kitchen] == '1'
     @listings = @listings.where(laundry: true) if params[:laundry] == '1'
     @listings = @listings.where(private_bathroom: true) if params[:private_bathroom] == '1'
     @listings = @listings.where("distance <  ?", params[:distance].to_i) if params[:distance].present?
     @listings = @listings.where("price <  ?", params[:price].to_i) if params[:price].present?
-    @listings = @listings.where("nr_of_rooms >=  ?", params[:nr_of_rooms].to_i) if params[:nr_of_rooms].present?
+    @listings = @listings.where("nr_of_rooms =  ?", params[:nr_of_rooms].to_i) if params[:nr_of_rooms].present?
 
     @towns = @listings.where(style: "Townhouse") if params[:townhouse] == '1'
     @flats = @listings.where(style: "Flat") if params[:flat] == '1'
@@ -63,8 +64,12 @@ class ListingsController < ApplicationController
       }
     end
 
-    @checkin_date = params[:checkin_date]
-    @checkout_date = params[:checkout_date]
+    session[:checkin_date] = params[:checkin_date] if params[:checkin_date]
+    session[:checkout_date] = params[:checkout_date] if params[:checkout_date]
+
+    @checkin_date = session[:checkin_date]
+    @checkout_date = session[:checkout_date]
+
   end
 
   def show
@@ -80,7 +85,7 @@ class ListingsController < ApplicationController
       "latitude" => 52.341051887583106,
       "longitude" => 4.854343356138673,
     }
-    
+
 
      response = HTTParty.get("https://gateway.apiportal.ns.nl/reisinformatie-api/api/v2/stations/nearest?lat=
                                      #{@listing.latitude}&lng=#{@listing.longitude}",
@@ -100,10 +105,10 @@ class ListingsController < ApplicationController
 
      @walking = HTTParty.get("https://api.distancematrix.ai/maps/api/distancematrix/json?origins=#{@listing.latitude},#{@listing.longitude}&destinations=#{amsterdam["latitude"]},#{amsterdam["longitude"]}
                                       &mode=walking&departure_time=now&key=WeUbWu5Qhruy3Wv27CFMukdV0xOMH").parsed_response["rows"][0]["elements"][0]["duration"]["text"]
-                              
+
      @driving = HTTParty.get("https://api.distancematrix.ai/maps/api/distancematrix/json?origins=#{@listing.latitude},#{@listing.longitude}&destinations=#{amsterdam["latitude"]},#{amsterdam["longitude"]}
                                      &mode=driving&departure_time=now&key=WeUbWu5Qhruy3Wv27CFMukdV0xOMH").parsed_response["rows"][0]["elements"][0]["duration"]["text"]
-      
+
      @biking = HTTParty.get("https://api.distancematrix.ai/maps/api/distancematrix/json?origins=#{@listing.latitude},#{@listing.longitude}&destinations=#{amsterdam["latitude"]},#{amsterdam["longitude"]}
                                     &mode=bicycling&departure_time=now&key=WeUbWu5Qhruy3Wv27CFMukdV0xOMH").parsed_response["rows"][0]["elements"][0]["duration"]["text"]
 
@@ -112,4 +117,3 @@ class ListingsController < ApplicationController
   end
 
 end
-

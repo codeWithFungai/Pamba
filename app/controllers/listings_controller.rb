@@ -6,7 +6,7 @@ class ListingsController < ApplicationController
     @distance = params[:distance] if params[:distance].present?
     @price = 95
     @price = params[:price] if params[:price].present?
-    @rooms = 1
+    # @rooms = 1
     @rooms = params[:nr_of_rooms] if params[:nr_of_rooms].present?
 
     @flat = false
@@ -39,7 +39,7 @@ class ListingsController < ApplicationController
     @listings = @listings.where(private_bathroom: true) if params[:private_bathroom] == '1'
     @listings = @listings.where("distance <  ?", params[:distance].to_i) if params[:distance].present?
     @listings = @listings.where("price <  ?", params[:price].to_i) if params[:price].present?
-    @listings = @listings.where("nr_of_rooms >=  ?", params[:nr_of_rooms].to_i) if params[:nr_of_rooms].present?
+    @listings = @listings.where("nr_of_rooms =  ?", params[:nr_of_rooms].to_i) if params[:nr_of_rooms].present?
 
     @towns = @listings.where(style: "Townhouse") if params[:townhouse] == '1'
     @flats = @listings.where(style: "Flat") if params[:flat] == '1'
@@ -55,6 +55,11 @@ class ListingsController < ApplicationController
     @listings += @semis unless @semis.nil?
     @listings += @detachs unless @detachs.nil?
 
+    amsterdam = {
+      "latitude" => 52.341051887583106,
+      "longitude" => 4.854343356138673,
+    }
+
     @markers = @listings.map do |listing|
       {
         lat: listing.latitude,
@@ -62,7 +67,10 @@ class ListingsController < ApplicationController
         info_window_html: render_to_string(partial: "info_window", locals: {listing: listing}),
         marker_html: render_to_string(partial: "marker")
       }
+    
     end
+
+    @markers.push({lat: amsterdam["latitude"], lng: amsterdam["longitude"], marker_html: render_to_string(partial: "wagonmarker") })
 
     session[:checkin_date] = params[:checkin_date] if params[:checkin_date]
     session[:checkout_date] = params[:checkout_date] if params[:checkout_date]
@@ -76,7 +84,6 @@ class ListingsController < ApplicationController
     @listing = Listing.find(params[:id])
     @booking = Booking.new
     @markers = [{lat: @listing.latitude, lng: @listing.longitude, marker_html: render_to_string(partial: "marker")}]
-    # api_key = "c7257787c2e14890a7fd3e571eb417c4"
     headers = {
       "Cache-Control" => "no-cache",
       "Ocp-Apim-Subscription-Key" => "c7257787c2e14890a7fd3e571eb417c4"
@@ -114,7 +121,7 @@ class ListingsController < ApplicationController
                                     &mode=bicycling&departure_time=now&key=WeUbWu5Qhruy3Wv27CFMukdV0xOMH").parsed_response["rows"][0]["elements"][0]["duration"]["text"]
 
     @booking = Booking.new(start_date: params[:checkin_date], end_date: params[:checkout_date])
-    @markers = [ {lat: @listing.latitude, lng: @listing.longitude, marker_html: render_to_string(partial: "marker") }]
+    @markers = [ {lat: @listing.latitude, lng: @listing.longitude, marker_html: render_to_string(partial: "marker") }, {lat: amsterdam["latitude"], lng: amsterdam["longitude"], marker_html: render_to_string(partial: "wagonmarker") }]
   end
 
 end

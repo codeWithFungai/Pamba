@@ -3,6 +3,14 @@
 // #BAD7E9 light blue
 // #2B3467 dark blue
 
+.no-decoration{
+text-decoration: none;
+color: #2B3467;
+}
+
+.no-decoration:hover{
+  color: #EB455F;
+  }
 
 .btn-ghost {
   color: #4A4A4A;
@@ -93,6 +101,9 @@
   font-weight: 500;
   border-radius: 10px;
   width: 50%;
+  text-align: center;
+  text-decoration: none;
+  padding-top: 0.5rem;
 }
 
 .btn-review:hover {

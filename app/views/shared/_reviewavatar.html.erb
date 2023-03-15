@@ -32,13 +32,14 @@
 <div class="notification">
   <div class="notification-content">
       <% @listing.reviews.each do |review| %>
-        <img src= "<%=avatar.sample%>"  class="avatar-large"/>
+        <div class='review--line' data-id='<%= review.id %>'>
+            <img src= "<%=avatar.sample%>"  class="avatar-large"/>
             <p><small>14th January</small></p>
-                  <p style="text-overflow: ellipsis;">
-                  <%= review.content %>
-                  <%= review.rating  %> <i class="fa-solid fa-star"></i>
-                  </p>
-                  <% end %>
+            <p style="text-overflow: ellipsis;">
+            <%= review.content%>
+            <%= review.rating  %> <i class="fa-solid fa-star"></i></p>
+        </div>
+      <% end %>
   </div>
 
   <%# <div class="notification-actions">

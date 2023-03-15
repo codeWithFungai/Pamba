@@ -55,6 +55,11 @@ class ListingsController < ApplicationController
     @listings += @semis unless @semis.nil?
     @listings += @detachs unless @detachs.nil?
 
+    amsterdam = {
+      "latitude" => 52.341051887583106,
+      "longitude" => 4.854343356138673,
+    }
+
     @markers = @listings.map do |listing|
       {
         lat: listing.latitude,
@@ -62,7 +67,10 @@ class ListingsController < ApplicationController
         info_window_html: render_to_string(partial: "info_window", locals: {listing: listing}),
         marker_html: render_to_string(partial: "marker")
       }
+    
     end
+
+    @markers.push({lat: amsterdam["latitude"], lng: amsterdam["longitude"], marker_html: render_to_string(partial: "wagonmarker") })
 
     session[:checkin_date] = params[:checkin_date] if params[:checkin_date]
     session[:checkout_date] = params[:checkout_date] if params[:checkout_date]

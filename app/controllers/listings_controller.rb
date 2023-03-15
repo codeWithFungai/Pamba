@@ -6,7 +6,7 @@ class ListingsController < ApplicationController
     @distance = params[:distance] if params[:distance].present?
     @price = 95
     @price = params[:price] if params[:price].present?
-    @rooms = 1
+    # @rooms = 1
     @rooms = params[:nr_of_rooms] if params[:nr_of_rooms].present?
 
     @flat = false
@@ -39,7 +39,7 @@ class ListingsController < ApplicationController
     @listings = @listings.where(private_bathroom: true) if params[:private_bathroom] == '1'
     @listings = @listings.where("distance <  ?", params[:distance].to_i) if params[:distance].present?
     @listings = @listings.where("price <  ?", params[:price].to_i) if params[:price].present?
-    @listings = @listings.where("nr_of_rooms >=  ?", params[:nr_of_rooms].to_i) if params[:nr_of_rooms].present?
+    @listings = @listings.where("nr_of_rooms =  ?", params[:nr_of_rooms].to_i) if params[:nr_of_rooms].present?
 
     @towns = @listings.where(style: "Townhouse") if params[:townhouse] == '1'
     @flats = @listings.where(style: "Flat") if params[:flat] == '1'

@@ -67,7 +67,7 @@ class ListingsController < ApplicationController
         info_window_html: render_to_string(partial: "info_window", locals: {listing: listing}),
         marker_html: render_to_string(partial: "marker")
       }
-    
+
     end
 
     @markers.push({lat: amsterdam["latitude"], lng: amsterdam["longitude"], marker_html: render_to_string(partial: "wagonmarker") })

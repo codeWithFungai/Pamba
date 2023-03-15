@@ -149,6 +149,9 @@ addresses.each do |address|
       start_date: Faker::Date.between(from: '2020-02-23', to: '2020-04-25'),
       end_date: Faker::Date.between(from: '2020-04-23', to: '2020-06-25')
     )
+
+    activities = ['Bowling at Bison Bowling, Billiards at 9 Ball', 'Sight Seeing, Open Market on Wednesday and Saturday', 'Modern Art Museum, Lots of parks close by', 'Walking Tour of the city, Billiards at Big Bill Billiards']
+
     Review.create(
       booking_id: booking.id,
       content: text.sample,
@@ -156,7 +159,7 @@ addresses.each do |address|
       transport: ['Train', 'Tram', 'Bus', 'Bike', 'Walk'].sample,
       groceries: ['ALbert Heijn', 'Aldi', 'Jumbo', 'Plus', 'Lidl'].sample,
       restaurant: Faker::Restaurant.name,
-      activities: ['Bowling', 'Billiards', 'Sight Seeing', 'Open Market', 'Museum', 'Park', 'Walking Tour'].sample(2),
+      activities: activities.sample,
       tips: ['Pre-purchase tickets where possible', 'Book accommodation and restaurants in advance', 'Lock your bike...twice', 'Pack layers of clothing', 'Buy an OV-chipkaart for travel around the city', 'Mind the cyclists and cycling lanes', 'Dont rent a car, rent a bike instead', 'Watch out for pickpockets'].sample
     )
   end

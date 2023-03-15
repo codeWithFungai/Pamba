@@ -2,7 +2,7 @@
   <div class='container pt-2'>
     <h3 class="card--title">Create a booking</h3>
     <div class='col'>
-      <%= simple_form_for [listing, booking] do |f| %>
+      <%= simple_form_for [@listing, @booking] do |f| %>
         <%= f.input :start_date %>
         <%= f.input :end_date %>
         <div class='btns-container' id='btn-booking-price-book'>

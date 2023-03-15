@@ -98,6 +98,12 @@
   border-radius: 10px;
   height: 40px;
   width: 100px;
+  font-weight: bold;
+}
+
+.btn-secondary:hover {
+  background: #2B3467;
+  font-weight: bold;
 }
 
 .total--price {

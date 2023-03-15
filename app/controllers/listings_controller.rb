@@ -71,7 +71,6 @@ class ListingsController < ApplicationController
     @listing = Listing.find(params[:id])
     @booking = Booking.new
     @markers = [{lat: @listing.latitude, lng: @listing.longitude, marker_html: render_to_string(partial: "marker")}]
-    # api_key = "c7257787c2e14890a7fd3e571eb417c4"
     headers = {
       "Cache-Control" => "no-cache",
       "Ocp-Apim-Subscription-Key" => "c7257787c2e14890a7fd3e571eb417c4"
@@ -109,7 +108,7 @@ class ListingsController < ApplicationController
                                     &mode=bicycling&departure_time=now&key=WeUbWu5Qhruy3Wv27CFMukdV0xOMH").parsed_response["rows"][0]["elements"][0]["duration"]["text"]
 
     @booking = Booking.new(start_date: params[:checkin_date], end_date: params[:checkout_date])
-    @markers = [ {lat: @listing.latitude, lng: @listing.longitude, marker_html: render_to_string(partial: "marker") }]
+    @markers = [ {lat: @listing.latitude, lng: @listing.longitude, marker_html: render_to_string(partial: "marker") }, {lat: amsterdam["latitude"], lng: amsterdam["longitude"], marker_html: render_to_string(partial: "wagonmarker") }]
   end
 
 end

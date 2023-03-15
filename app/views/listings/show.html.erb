@@ -33,7 +33,7 @@
               <div class="p-2" style="border:1px solid #2B3467; max-height: 300px; overflow:scroll; border-radius: 12px">
                     <div class="info-details">
                           <h3 class="card--title">Property Details</h3>
-                          <p style="color: #2B3467"><i class="fa-solid fa-children"></i> 4 guests  | <i class="fa-solid fa-people-roof" style="color: #2B3467"></i> 2 bedrooms | <i class="fa-solid fa-bed" style="color: #2B3467"></i> 4 beds | <i class="fa-solid fa-bath" style="color: #2B3467"></i> 2 baths</p>
+                          <p style="color: #2B3467"><i class="fa-solid fa-children"></i> <%= (@listing.nr_of_rooms * 2) %> guests | <i class="fa-solid fa-people-roof" style="color: #2B3467"></i> <%=@listing.nr_of_rooms %> bedrooms | <i class="fa-solid fa-bed" style="color: #2B3467"></i> <%= @listing.nr_of_rooms %> beds | <i class="fa-solid fa-bath" style="color: #2B3467"></i> <%= (@listing.nr_of_rooms / 2 + 1) %> baths</p>
                           <p><%= @listing.description %></p>
                           <div class="card-trip-infos">
                            <h5 style="color: #2B3467"><strong>For: €<%= @listing.price %> / night</strong></h5>
@@ -44,25 +44,25 @@
                       <br>
                       <h3>Amenities:</h3>
                       <% if @kit = true %>
-                      <p><i class="fa-solid fa-kitchen-set"></i>"-Kitchen"</p>
+                      <p><i class="fa-solid fa-kitchen-set" style="color: #2B3467"></i>"-Kitchen"</p>
                       <% end %>
                       <% if %>
-                      <p><i class="fa-solid fa-bath"></i>-Private Bathroom</p>
+                      <p><i class="fa-solid fa-bath"style="color: #2B3467"></i>-Private Bathroom</p>
                       <% end %>
                       <% if @laud = true %>
-                      <p><i class="fa-solid fa-shirt"></i>-Washer/Dryer</p>
+                      <p><i class="fa-solid fa-shirt"style="color: #2B3467"></i>-Washer/Dryer</p>
                       <% end %>
-                      <p><i class="fa-solid fa-wifi"></i>-Wifi </p>
-                      <p><i class="fa-solid fa-tv"></i>-TV</p>
+                      <p><i class="fa-solid fa-wifi"style="color: #2B3467"></i>-Wifi </p>
+                      <p><i class="fa-solid fa-tv"style="color: #2B3467"></i>-TV</p>
                     </div>
 
                     <div class="d-flex justify-content-between">
                           <div class="arrival">
-                                <p><i class="fa-solid fa-door-closed"></i> <strong>Self check-in</strong><br>
+                                <p><i class="fa-solid fa-door-closed" style="color: #2B3467"></i> <strong>Self check-in</strong><br>
                                 You can check in with the doorman.</p>
-                                <p><i class="fa-solid fa-car"></i> <strong>Drive Right Up</strong><br>
+                                <p><i class="fa-solid fa-car" style="color: #2B3467"></i> <strong>Drive Right Up</strong><br>
                                 You can park your vechile in the private driveway</p>
-                                <p><i class="fa-regular fa-star"></i> <strong>Experienced host</strong><br>
+                                <p><i class="fa-regular fa-star" style="color: #2B3467"></i> <strong>Experienced host</strong><br>
                                 Novasol has 24 reviews from other guests.</p><br>
                                 <p>- Free parking on site<br>
                                 - Not suitable for youth groups<br>
@@ -77,7 +77,7 @@
       <div class="container-tablet" style=" width: 40%; margin-top: 3px">
          <div class="p-2" style="border:1px solid #2B3467; max-height: 300px; overflow:scroll; border-radius: 12px">
                     <div class="d-flex justify-content-between">
-                          <div class="arrival"> 
+                          <div class="arrival">
                                 <h3 class="card--title">Commute Options To Campus</h3>
                                 <p><i class="fa-solid fa-person-walking" style="color: #2B3467"></i> <strong style="margin-left: 10px; color: #2B3467">Walking</strong><br>
                                  Walk Time:: <%=@walking%></p>

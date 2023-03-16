@@ -20,7 +20,11 @@
           </p>
       </div>
       <div class="card-trip-pricing">
-        <h3>€<%= listing.price %> | <%='★' * listing.avg_rating %> </h3>
+        <% if listing.avg_rating.nil? %>
+          <h3>€<%= listing.price %> | <%='★' * [3,4,5].sample %> </h3>
+        <% else %>
+          <h3>€<%= listing.price %> | <%='★' * listing.avg_rating %> </h3>
+        <% end %>
       </div>
   </div>
 </div>

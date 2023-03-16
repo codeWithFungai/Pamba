@@ -33,7 +33,86 @@
                 <div class="p-2" style="border:1px solid #2B3467; max-height: 300px; overflow:scroll; border-radius: 12px">
                       <div class="info-details">
                             <h3 class="card--title">Property Details</h3>
-                            <p style="color: #2B3467"><i class="fa-solid fa-children"></i> 4 guests  | <i class="fa-solid fa-people-roof" style="color: #2B3467"></i> 2 bedrooms | <i class="fa-solid fa-bed" style="color: #2B3467"></i> 4 beds | <i class="fa-solid fa-bath" style="color: #2B3467"></i> 2 baths</p>
+                          <p style="color: #2B3467"><i class="fa-solid fa-children"></i> <%= (@listing.nr_of_rooms * 2) %> guests | <i class="fa-solid fa-people-roof" style="color: #2B3467"></i> <%=@listing.nr_of_rooms %> bedrooms | <i class="fa-solid fa-bed" style="color: #2B3467"></i> <%= @listing.nr_of_rooms %> beds | <i class="fa-solid fa-bath" style="color: #2B3467"></i> <%= (@listing.nr_of_rooms / 2 + 1) %> baths</p>
+                          <p><%= @listing.description %></p>
+                          <div class="card-trip-infos">
+                           <h5 style="color: #2B3467"><strong>For: €<%= @listing.price %> / night</strong></h5>
+                          </div>
+                    </div>
+
+                    <div class="offers">
+                      <br>
+                      <h3>Amenities:</h3>
+                      <% if @kit = true %>
+                      <p><i class="fa-solid fa-kitchen-set" style="color: #2B3467"></i>"-Kitchen"</p>
+                      <% end %>
+                      <% if %>
+                      <p><i class="fa-solid fa-bath"style="color: #2B3467"></i>-Private Bathroom</p>
+                      <% end %>
+                      <% if @laud = true %>
+                      <p><i class="fa-solid fa-shirt"style="color: #2B3467"></i>-Washer/Dryer</p>
+                      <% end %>
+                      <p><i class="fa-solid fa-wifi"style="color: #2B3467"></i>-Wifi </p>
+                      <p><i class="fa-solid fa-tv"style="color: #2B3467"></i>-TV</p>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                          <div class="arrival">
+                                <p><i class="fa-solid fa-door-closed" style="color: #2B3467"></i> <strong>Self check-in</strong><br>
+                                You can check in with the doorman.</p>
+                                <p><i class="fa-solid fa-car" style="color: #2B3467"></i> <strong>Drive Right Up</strong><br>
+                                You can park your vechile in the private driveway</p>
+                                <p><i class="fa-regular fa-star" style="color: #2B3467"></i> <strong>Experienced host</strong><br>
+                                Novasol has 24 reviews from other guests.</p><br>
+                                <p>- Free parking on site<br>
+                                - Not suitable for youth groups<br>
+                                - Optional: Bedlinen incl towels<br><br>
+                                No pets allowed
+                                </p>
+                          </div>
+                    </div>
+              </div>
+        </div>
+
+      <div class="container-tablet" style=" width: 40%; margin-top: 3px">
+         <div class="p-2" style="border:1px solid #2B3467; max-height: 300px; overflow:scroll; border-radius: 12px">
+                    <div class="d-flex justify-content-between">
+                          <div class="arrival">
+                                <h3 class="card--title">Commute Options To Campus</h3>
+                                <p><i class="fa-solid fa-person-walking" style="color: #2B3467"></i> <strong style="margin-left: 10px; color: #2B3467">Walking</strong><br>
+                                 Walk Time:: <%=@walking%></p>
+                               <p><i class="fa-solid fa-bicycle" style="color: #2B3467"></i> <strong style="margin-left: 5px; color: #2B3467">Biking</strong><br>
+                                Ride Time :: <%=@biking%></p>
+                                <p><i class="fa-solid fa-car" style="color: #2B3467"></i> <strong style="margin-left: 5px; color: #2B3467">Driving</strong><br>
+                                 Drive Time :: <%=@driving%></p>
+                                <p><i class="fa-solid fa-train" style="color: #2B3467"></i> <strong style="margin-left: 5px; color: #2B3467">Train</strong><br>
+                                 From <%=@station_depart_name%> To <%=@station_arrive_name%> For €<%=(@trip_price/100).to_f%></p>
+                          </div>
+                    </div>
+          </div>
+      </div>
+
+     <div class="container-tablet" style=" width: 40%; margin-top: 3px">
+         <div class="p-2" style="border:1px solid #2B3467; max-height: 300px; overflow:scroll; border-radius: 12px">
+            <%= render "bookings/new", listing: @listing, booking: @booking %><br>
+             <div class="buttons-container ">
+             </div>
+          </div>
+      </div>
+  </div>
+
+
+
+  <div class="d-flex p-0 m-0">
+     <div class="container-tablet" style=" width: 100%; margin-top: 1rem">
+         <div class="p-2" style="border:1px solid #2B3467; max-height: 300px; overflow:scroll; border-radius: 12px">
+            <%= render "shared/reviewavatar", listing: @listing %><br>
+          </div>
+      </div>
+
+  </div>
+</div>
+
                             <p><%= @listing.description %></p>
                             <div class="card-trip-infos">
                             <h5 style="color: #2B3467"><strong>For: €<%= @listing.price %> / night</strong></h5>

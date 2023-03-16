@@ -3,8 +3,26 @@
 // #BAD7E9 light blue
 // #2B3467 dark blue
 
+
+.btn, .btn-review {
+  padding: 8px 24px;
+  border: 1px solid #4A4A4A;
+  transition: 0.3s ease;
+  font-weight: 500;
+  border-radius: 10px;
+  text-align: center;
+  text-decoration: none;
+  padding-top: 0.5rem;
+  width: 50%;
+}
+
+#btn--chatroom, #btn--delete {
+  width: 50%;
+}
+
 .no-decoration{
 text-decoration: none;
+// text-align: right;
 color: #2B3467;
 }
 
@@ -13,13 +31,11 @@ color: #2B3467;
   }
 
 .btn-ghost {
-  color: #4A4A4A;
-  border: 1px solid #4A4A4A;
-  padding: 8px 24px;
-  border-radius: 50px;
-  font-weight: lighter;
-  opacity: 0.6;
-  transition: opacity 0.3s ease;
+  transition: 0.3s ease;
+  font-weight: 500;
+  border-radius: 10px;
+  width: 200px;
+  height: 40px;
 }
 
 .btn-ghost:hover {
@@ -32,8 +48,9 @@ color: #2B3467;
   transition: 0.3s ease;
   font-weight: 500;
   border-radius: 10px;
-  width: 200px;
+  width: 205px;
   height: 40px;
+  text-align: center;
 }
 
 .btn-flat:hover {
@@ -56,28 +73,11 @@ color: #2B3467;
   color: white;
 }
 
-#btn--review {
-  color: #FCFFE7;
-  background: #EB455F;
-  transition: 0.3s ease;
-  font-weight: 500;
-  line-height: 16px;
-  border-radius: 10px;
-  width: 50%;
-  padding: 7px;
-  height: 40px;
-}
-
 #btn--chatroom {
   color: #FCFFE7;
   background: #2B3467;
-  transition: 0.3s ease;
-  font-weight: 500;
-  line-height: 40px;
-  border-radius: 10px;
-  width: 50%;
-  padding: 7px;
 }
+
 #btn--chatroom:hover {
   background: #EB455F;
   color: white;
@@ -86,24 +86,12 @@ color: #2B3467;
 #btn--delete {
   color: #4A4A4A;
   border: 1px solid #4A4A4A;
-  padding: 7px;
-  border-radius: 10px;
-  width: 50%;
-  opacity: 0.6;
-  transition: opacity 0.3s ease;
-  text-align: center;
 }
 
 .btn-review {
   color: #FCFFE7;
   background: #EB455F;
-  transition: 0.3s ease;
-  font-weight: 500;
-  border-radius: 10px;
-  width: 50%;
-  text-align: center;
   text-decoration: none;
-  padding-top: 0.5rem;
 }
 
 .btn-review:hover {

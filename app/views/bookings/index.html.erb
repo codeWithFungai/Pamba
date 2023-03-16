@@ -13,11 +13,11 @@
           <p> <strong>Address: </strong><%= booking.listing.address %></p>
         </div>
         <div class='bookings-buttons'>
-          <a href="<%= booking_path(booking) %>" type="button" class="btn-review" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Leave a review
+            <a href="<%= booking_path(booking) %>" type="button" class="btn-review" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Review
           </a>
-          <%= link_to 'Chatroom', chatroom_path(booking.listing.chatroom), class: "btn", id: 'btn--chatroom' %>
-          <%= link_to 'Delete Booking', booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn", id: 'btn--delete' %>
+          <%= link_to 'Message', chatroom_path(booking.listing.chatroom), class: "btn", id: 'btn--chatroom' %>
+          <%= link_to 'Delete', booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn", id: 'btn--delete' %>
         </div>
       </div>
     </div>

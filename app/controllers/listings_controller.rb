@@ -2,7 +2,6 @@ class ListingsController < ApplicationController
   def index
     # raise
     @listings = Listing.all
-    raise
     @distance = 30
     @distance = params[:distance] if params[:distance].present?
     @price = 95

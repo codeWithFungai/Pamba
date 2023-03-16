@@ -9,7 +9,7 @@
 .background-fader {
   width: 100vw;
   height: 1300px;
-  background-color: rgba(0, 0, 0, 0.501);
+  background-color: rgba(0, 0, 0, 0.603);
   z-index: 5;
   position: absolute;
   top: 0;
@@ -67,6 +67,18 @@
   cursor: pointer;
 }
 
+#review--box {
+  padding: 0.5rem 1.5rem;
+}
+
+#amenities {
+  font-size: 20px;
+}
+
+.property--details {
+  padding: 0.3rem 1.2rem;
+}
+
 .booking_background{
   background-color:#eb455ecb;
 }
@@ -75,6 +87,6 @@
   background-color: rgb(237, 237, 237);
 }
 
-.bookings--container{
+.bookings--container {
   padding-top: 2rem;
 }

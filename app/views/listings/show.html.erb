@@ -30,7 +30,7 @@
 
     <div class="d-flex justify-content-between p-0 m-0">
           <div class="container-tablet" style="width: 40%; margin-top: 3px">
-                <div class="p-2" style="border:1px solid #2B3467; max-height: 300px; overflow:scroll; border-radius: 12px">
+                <div class="property--details" style="border:1px solid #2B3467; max-height: 300px; overflow:scroll; border-radius: 12px">
                       <div class="info-details">
                             <h3 class="card--title">Property Details</h3>
                             <p style="color: #2B3467"><i class="fa-solid fa-children"></i> <%= (@listing.nr_of_rooms * 2) %> guests | <i class="fa-solid fa-people-roof" style="color: #2B3467"></i> <%=@listing.nr_of_rooms %> bedrooms | <i class="fa-solid fa-bed" style="color: #2B3467"></i> <%= @listing.nr_of_rooms %> beds | <i class="fa-solid fa-bath" style="color: #2B3467"></i> <%= (@listing.nr_of_rooms / 2 + 1) %> baths</p>
@@ -42,7 +42,7 @@
 
                       <div class="offers">
                         <br>
-                        <h3>Amenities:</h3>
+                        <h3 id='amenities'>Amenities:</h3>
                         <% if @kit = true %>
                         <p><i class="fa-solid fa-kitchen-set"></i>"-Kitchen"</p>
                         <% end %>
@@ -75,7 +75,7 @@
           </div>
 
         <div class="container-tablet" style=" width: 40%; margin-top: 3px">
-          <div class="p-2" style="border:1px solid #2B3467; max-height: 300px; overflow:scroll; border-radius: 12px">
+          <div class="property--details" style="border:1px solid #2B3467; max-height: 300px; overflow:scroll; border-radius: 12px">
                       <div class="d-flex justify-content-between">
                             <div class="arrival">
                                   <h3 class="card--title">Commute Options To Campus</h3>
@@ -93,7 +93,7 @@
         </div>
 
       <div class="container-tablet" style=" width: 40%; margin-top: 3px">
-          <div class="p-2" style="border:1px solid #2B3467; max-height: 300px; overflow:scroll; border-radius: 12px">
+          <div class="property--details" style="border:1px solid #2B3467; max-height: 300px; overflow:scroll; border-radius: 12px">
               <%= render "bookings/new", listing: @listing%><br>
               <div class="buttons-container ">
               </div>
@@ -105,7 +105,7 @@
 
     <div class="d-flex p-0 m-0 mb-5">
       <div class="container-tablet" style=" width: 100%; margin-top: 1rem">
-        <div class="p-2" style="border:1px solid #2B3467; max-height: 300px; overflow:scroll; border-radius: 12px">
+        <div class="review--box" id='review--box' style="border:1px solid #2B3467; max-height: 300px; overflow:scroll; border-radius: 12px">
           <%= render "shared/reviewavatar", listing: @listing %><br>
         </div>
       </div>

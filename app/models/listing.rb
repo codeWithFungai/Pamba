@@ -11,6 +11,8 @@ class Listing < ApplicationRecord
     ratings.each do |rate|
       total += rate
     end
-    total / ratings.count
+    if ratings.count.positive?
+      total / ratings.count
+    end
   end
 end

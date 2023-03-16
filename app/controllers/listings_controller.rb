@@ -122,6 +122,11 @@ class ListingsController < ApplicationController
 
     @booking = Booking.new(start_date: params[:checkin_date], end_date: params[:checkout_date])
     @markers = [ {lat: @listing.latitude, lng: @listing.longitude, marker_html: render_to_string(partial: "marker") }, {lat: amsterdam["latitude"], lng: amsterdam["longitude"], marker_html: render_to_string(partial: "wagonmarker") }]
+
+    if @listing.nil?
+      render file: "#{Rails.root}/public/404.html", layout: false, status: :not_found
+    end
+
   end
 
 end

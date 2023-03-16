@@ -1,42 +1,90 @@
+// .notification {
+//   display: flex;
+//   align-items: center;
+//   margin-bottom: 8px;
+//   background: white;
+//   padding: 8px 16px;
+//   border: 1px solid rgb(235,235,235);
+// }
+
+// .notification .notification-content {
+//   flex-grow: 1;
+//   padding: 0 24px;
+// }
+
+// .notification p {
+//   margin: 0;
+//   line-height: 1.4;
+// }
+
+// .notification small {
+//   color: #999999;
+//   font-weight: bold;
+// }
+// .notification .notification-actions {
+//   opacity: 0;
+//   display: flex;
+//   transition: ease .3s;
+// }
+
+// .notification:hover .notification-actions {
+//   opacity: 1;
+// }
+
+// .notification .notification-actions a {
+//   color: #999999;
+//   margin-left: 16px;
+//   font-size: 14px;
+// }
+
+// .notification .notification-actions a:hover {
+//   color: #555555;
+// }
+
+// #review--box {
+//   padding: 0.5rem 1.5rem;
+// }
+
 .notification {
+
+}
+
+.review--line {
   display: flex;
   align-items: center;
-  margin-bottom: 8px;
-  background: white;
-  padding: 8px 16px;
-  border: 1px solid rgb(235,235,235);
 }
 
-.notification .notification-content {
-  flex-grow: 1;
-  padding: 0 24px;
-}
-
-.notification p {
-  margin: 0;
-  line-height: 1.4;
-}
-
-.notification small {
-  color: #999999;
-  font-weight: bold;
-}
-.notification .notification-actions {
-  opacity: 0;
+.review--left {
   display: flex;
-  transition: ease .3s;
+  flex-direction: column;
+  align-items: center;
+  width: 100px;
 }
 
-.notification:hover .notification-actions {
-  opacity: 1;
+.review--left p {
+  display: inline-block;
+  width: 100px;
+  }
+
+.review--right {
+width: auto;
+align-self: center;
 }
 
-.notification .notification-actions a {
-  color: #999999;
-  margin-left: 16px;
-  font-size: 14px;
+.avatar-large {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
 }
 
-.notification .notification-actions a:hover {
-  color: #555555;
+.divider--line {
+  width: 80%;
+  color: rgb(166, 166, 166);
+  margin: 0 auto 20px auto;
+}
+
+.card--title {
+  padding: 0;
+  font-size: 20px;
+  margin: 8px 0 16px 0;
 }

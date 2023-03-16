@@ -8,7 +8,7 @@
             </div>
                     <div class="d-flex justify-content-between">
                           <p style="color: #2B3467"> <%= @listing.city %>, Distance to campus :: <%= @listing.distance.round(2)%> km </p>
-                          <p>Save <i class="fa-regular fa-heart"></i> Share <i class="fa-sharp fa-solid fa-arrow-up-from-bracket"></i></p>
+                          <p>Average Rating: <%='★' * @listing.avg_rating %></p>
                     </div>
     <div class="p-0 m-3">
       <div class="row">
@@ -30,10 +30,10 @@
 
     <div class="d-flex justify-content-between p-0 m-0">
           <div class="container-tablet" style="width: 40%; margin-top: 3px">
-                <div class="p-2" style="border:1px solid #2B3467; max-height: 300px; overflow:scroll; border-radius: 12px">
+                <div class="property--details" style="border:1px solid #2B3467; max-height: 300px; overflow:scroll; border-radius: 12px">
                       <div class="info-details">
                             <h3 class="card--title">Property Details</h3>
-                            <p style="color: #2B3467"><i class="fa-solid fa-children"></i> 4 guests  | <i class="fa-solid fa-people-roof" style="color: #2B3467"></i> 2 bedrooms | <i class="fa-solid fa-bed" style="color: #2B3467"></i> 4 beds | <i class="fa-solid fa-bath" style="color: #2B3467"></i> 2 baths</p>
+                            <p style="color: #2B3467"><i class="fa-solid fa-children"></i> <%= (@listing.nr_of_rooms * 2) %> guests | <i class="fa-solid fa-people-roof" style="color: #2B3467"></i> <%=@listing.nr_of_rooms %> bedrooms | <i class="fa-solid fa-bed" style="color: #2B3467"></i> <%= @listing.nr_of_rooms %> beds | <i class="fa-solid fa-bath" style="color: #2B3467"></i> <%= (@listing.nr_of_rooms / 2 + 1) %> baths</p>
                             <p><%= @listing.description %></p>
                             <div class="card-trip-infos">
                             <h5 style="color: #2B3467"><strong>For: €<%= @listing.price %> / night</strong></h5>
@@ -42,7 +42,7 @@
 
                       <div class="offers">
                         <br>
-                        <h3>Amenities:</h3>
+                        <h3 id='amenities'>Amenities:</h3>
                         <% if @kit = true %>
                         <p><i class="fa-solid fa-kitchen-set"></i>"-Kitchen"</p>
                         <% end %>
@@ -75,7 +75,7 @@
           </div>
 
         <div class="container-tablet" style=" width: 40%; margin-top: 3px">
-          <div class="p-2" style="border:1px solid #2B3467; max-height: 300px; overflow:scroll; border-radius: 12px">
+          <div class="property--details" style="border:1px solid #2B3467; max-height: 300px; overflow:scroll; border-radius: 12px">
                       <div class="d-flex justify-content-between">
                             <div class="arrival">
                                   <h3 class="card--title">Commute Options To Campus</h3>
@@ -93,7 +93,7 @@
         </div>
 
       <div class="container-tablet" style=" width: 40%; margin-top: 3px">
-          <div class="p-2" style="border:1px solid #2B3467; max-height: 300px; overflow:scroll; border-radius: 12px">
+          <div class="property--details" style="border:1px solid #2B3467; max-height: 300px; overflow:scroll; border-radius: 12px">
               <%= render "bookings/new", listing: @listing%><br>
               <div class="buttons-container ">
               </div>
@@ -103,9 +103,9 @@
 
 
 
-    <div class="d-flex p-0 m-0">
+    <div class="d-flex p-0 m-0 mb-5">
       <div class="container-tablet" style=" width: 100%; margin-top: 1rem">
-        <div class="p-2" style="border:1px solid #2B3467; max-height: 300px; overflow:scroll; border-radius: 12px">
+        <div class="review--box" id='review--box' style="border:1px solid #2B3467; max-height: 300px; overflow:scroll; border-radius: 12px">
           <%= render "shared/reviewavatar", listing: @listing %><br>
         </div>
       </div>
@@ -130,17 +130,25 @@
   </div>
 </div>
 
+<div class='background-fader display--none'>
+</div>
+
 <script>
   const reviews = document.querySelectorAll('.review--line')
   const modals = document.querySelectorAll('.main--card--review')
   const closeBtns = document.querySelectorAll('.review--close--button')
+  const backFader = document.querySelector('.background-fader')
   reviews.forEach(review => {
     review.addEventListener('click', () => {
       modals.forEach(modal => {
         if (modal.dataset.id === review.dataset.id) {
           modal.classList.toggle('display--none')
+          backFader.classList.toggle('display--none')
           closeBtns.forEach((closeBtn) => {
-            closeBtn.addEventListener('click', () => { modal.classList.add('display--none')});
+            closeBtn.addEventListener('click', () => {
+              modal.classList.add('display--none')
+              backFader.classList.add('display--none')
+              });
           })
         }
       });

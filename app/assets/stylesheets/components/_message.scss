@@ -33,8 +33,14 @@
 .sender-style {
   background-color: lightcoral;
   align-self: flex-end;
+  img {
+    content: url("fungai.jpg")
+  }
 }
 
 .receiver-style {
   background-color: #BAD7E9;
+  img {
+    content: url("https://kitt.lewagon.com/placeholder/users/arthur-littm")
+  }
 }

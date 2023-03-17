@@ -1,9 +1,5 @@
 <div class="notification">
-  <% if message.user == current_user %>
-    <%= image_tag "fungai.jpg", class: "avatar-large"  %>
-  <% else %>
-    <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large" />
-  <% end %>
+  <%= image_tag "fungai.jpg", class: "avatar-large"  %>
   <div class="notification-content">
     <div id="message-<%= message.id %>">
       <small>
